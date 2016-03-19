@@ -61,7 +61,7 @@ git push origin source
 网上有个直接一次性同步的命令（http://stackoverflow.com/questions/1030169/easy-way-pull-latest-of-all-submodules）
 
 ```shell
-git pull&&git submodule --recursive
+git pull origin source && git submodule --recursive
 ```
 
 ### **参考**
