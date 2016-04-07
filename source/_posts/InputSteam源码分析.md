@@ -9,7 +9,7 @@ InputStream是一个抽象类，属于字节流的读取。
 /**
  * 该抽象类是所有字节输入流的超类。
  */
-public abstract class Source implements Closeable {
+public abstract class InputStream implements Closeable {
  
         // 该变量用于确定在skip方法中使用的最大缓存数组大小。
     private static final int MAX_SKIP_BUFFER_SIZE = 2048;
