@@ -3,27 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>153. Find Minimum in Rotated Sorted Array | olive</title>
+  <title>338. Counting Bits | olive</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Suppose a sorted array is rotated at some pivot unknown to you beforehand.
-(i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).
-Find the minimum element.
-You may assume no duplicate exists in the array.">
+  <meta name="description" content="Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1’s in their binary representation and return them as an array.
+Example:For num = 5 you sh">
 <meta property="og:type" content="article">
-<meta property="og:title" content="153. Find Minimum in Rotated Sorted Array">
-<meta property="og:url" content="http://olivelv.github.io/2016/03/16/153-Find-Minimum-in-Rotated-Sorted-Array/index.html">
+<meta property="og:title" content="338. Counting Bits">
+<meta property="og:url" content="http://olivelv.github.io/2016/03/22/338-Counting-Bits/index.html">
 <meta property="og:site_name" content="olive">
-<meta property="og:description" content="Suppose a sorted array is rotated at some pivot unknown to you beforehand.
-(i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).
-Find the minimum element.
-You may assume no duplicate exists in the array.">
-<meta property="og:updated_time" content="2016-03-19T07:18:13.841Z">
+<meta property="og:description" content="Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1’s in their binary representation and return them as an array.
+Example:For num = 5 you sh">
+<meta property="og:updated_time" content="2016-04-09T15:19:32.245Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="153. Find Minimum in Rotated Sorted Array">
-<meta name="twitter:description" content="Suppose a sorted array is rotated at some pivot unknown to you beforehand.
-(i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).
-Find the minimum element.
-You may assume no duplicate exists in the array.">
+<meta name="twitter:title" content="338. Counting Bits">
+<meta name="twitter:description" content="Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1’s in their binary representation and return them as an array.
+Example:For num = 5 you sh">
   
     <link rel="alternative" href="/atom.xml" title="olive" type="application/atom+xml">
   
@@ -171,11 +165,11 @@ You may assume no duplicate exists in the array.">
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-153-Find-Minimum-in-Rotated-Sorted-Array" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-338-Counting-Bits" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/16/153-Find-Minimum-in-Rotated-Sorted-Array/" class="article-date">
-  	<time datetime="2016-03-16T08:31:47.000Z" itemprop="datePublished">2016-03-16</time>
+      <a href="/2016/03/22/338-Counting-Bits/" class="article-date">
+  	<time datetime="2016-03-22T03:25:25.000Z" itemprop="datePublished">2016-03-22</time>
 </a>
     </div>
   
@@ -188,7 +182,7 @@ You may assume no duplicate exists in the array.">
         
   
     <h1 class="article-title" itemprop="name">
-      153. Find Minimum in Rotated Sorted Array
+      338. Counting Bits
     </h1>
   
 
@@ -208,12 +202,11 @@ You may assume no duplicate exists in the array.">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Suppose a sorted array is rotated at some pivot unknown to you beforehand.</p>
-<p>(i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).</p>
-<p>Find the minimum element.</p>
-<p>You may assume no duplicate exists in the array.</p>
-<p>结题思路：<br>方法一：遍历数组，判断是否存在nums[i-1]&gt;nums[i]的情况，若有则返回nums[i]，否则返回nums[0]。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 6ms</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findMin</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n=nums.size();</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">1</span>)<span class="keyword">return</span> nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i-<span class="number">1</span>]&gt;nums[i])<span class="keyword">return</span> nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>方法二：类二分法<br>将数组的中值与最右元素比较，若中间值大于最右元素，则说明右部分的数组存在递增递减的情况，即最小值在该区域内；若中间值小于最右元素，则最小区域在左部分。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 4ms</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findMin</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n=nums.size();</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">1</span>)<span class="keyword">return</span> nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> l=<span class="number">0</span>,r=n-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid=(l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid]&gt;nums[r])l=mid+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            r=mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums[l];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+        <p>Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1’s in their binary representation and return them as an array.</p>
+<p>Example:<br>For num = 5 you should return [0,1,1,2,1,2].</p>
+<p>Follow up:</p>
+<p>It is very easy to come up with a solution with run time O(n*sizeof(integer)). But can you do it in linear time O(n) /possibly in a single pass?<br>Space complexity should be O(n).<br>Can you do it like a boss? Do it without using any builtin function like __builtin_popcount in c++ or in any other language.</p>
+<p>解题思路：<br>这个题目类似89. Gray Code，找规律<br>0 - 0<br>1 - 1<br>2 - 1<br>3 - 2<br>4 - 1<br>5 - 2<br>6 - 2<br>7 - 3<br>8 - 1<br>$[2^{(i-1)},2^i-1]$是由$[0,2^{(i-1)}-1]$数组+1得到的。例如上面的[4,7]的值是由[0,3]+1得到的。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; countBits(<span class="keyword">int</span> num) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;res(num+<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">int</span> base=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> k=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(k&lt;=num)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;base&amp;&amp;k&lt;=num;j++)</span><br><span class="line">                res[k++]=res[j]+<span class="number">1</span>;</span><br><span class="line">            base&lt;&lt;=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">         </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -223,18 +216,18 @@ You may assume no duplicate exists in the array.">
     
 <nav id="article-nav">
   
-    <a href="/2016/03/16/List之ArrayList源码分析/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/04/05/hihocoder-1197-Give-My-Text-Back/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          List之ArrayList源码分析
+          hihocoder 1197:Give My Text Back
         
       </div>
     </a>
   
   
-    <a href="/2016/03/16/98-Gary-Code/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">89. Gray Code</div>
+    <a href="/2016/03/19/git-hexo之同步发布博客/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">git+hexo之同步发布博客</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -263,7 +256,7 @@ You may assume no duplicate exists in the array.">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="153-Find-Minimum-in-Rotated-Sorted-Array" data-title="153. Find Minimum in Rotated Sorted Array" data-url="http://olivelv.github.io/2016/03/16/153-Find-Minimum-in-Rotated-Sorted-Array/"></div>
+	<div class="ds-thread" data-thread-key="338-Counting-Bits" data-title="338. Counting Bits" data-url="http://olivelv.github.io/2016/03/22/338-Counting-Bits/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

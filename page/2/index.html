@@ -3,21 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>List之ArrayList源码分析 | olive</title>
+  <title>olive</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ArrayList内部使用一个Object[]数组来保存元素。源码版本为JDK1.7.0_75.12public class ArrayList&amp;lt;E&amp;gt; extends AbstractList&amp;lt;E&amp;gt;        implements List&amp;lt;E&amp;gt;, RandomAccess, Cloneable,java.io.Serializable
-从ArrayList">
-<meta property="og:type" content="article">
-<meta property="og:title" content="List之ArrayList源码分析">
-<meta property="og:url" content="http://olivelv.github.io/2016/03/16/List之ArrayList源码分析/index.html">
+  <meta name="description" content="walk steps by steps">
+<meta property="og:type" content="website">
+<meta property="og:title" content="olive">
+<meta property="og:url" content="http://olivelv.github.io/page/2/index.html">
 <meta property="og:site_name" content="olive">
-<meta property="og:description" content="ArrayList内部使用一个Object[]数组来保存元素。源码版本为JDK1.7.0_75.12public class ArrayList&amp;lt;E&amp;gt; extends AbstractList&amp;lt;E&amp;gt;        implements List&amp;lt;E&amp;gt;, RandomAccess, Cloneable,java.io.Serializable
-从ArrayList">
-<meta property="og:updated_time" content="2016-03-19T07:18:14.029Z">
+<meta property="og:description" content="walk steps by steps">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="List之ArrayList源码分析">
-<meta name="twitter:description" content="ArrayList内部使用一个Object[]数组来保存元素。源码版本为JDK1.7.0_75.12public class ArrayList&amp;lt;E&amp;gt; extends AbstractList&amp;lt;E&amp;gt;        implements List&amp;lt;E&amp;gt;, RandomAccess, Cloneable,java.io.Serializable
-从ArrayList">
+<meta name="twitter:title" content="olive">
+<meta name="twitter:description" content="walk steps by steps">
   
     <link rel="alternative" href="/atom.xml" title="olive" type="application/atom+xml">
   
@@ -165,7 +161,127 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-List之ArrayList源码分析" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
+  
+    <article id="post-145-Binary-Tree-Postorder-Traversal" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/16/145-Binary-Tree-Postorder-Traversal/" class="article-date">
+  	<time datetime="2016-03-16T13:35:21.000Z" itemprop="datePublished">2016-03-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/16/145-Binary-Tree-Postorder-Traversal/">145. Binary Tree Postorder Traversal</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Given a binary tree, return the postorder traversal of its nodes’ values.</p>
+<p>For example:<br>Given binary tree {1,#,2,3},<br>   1<br>    \<br>     2<br>    /<br>   3<br>return [3,2,1].</p>
+<p>解题思路：<br>方法一：递归方法。。。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">// recursive</span></span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">postorderTraversal</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">         vector&lt;<span class="keyword">int</span>&gt;res;</span><br><span class="line">         postorder(root,res);</span><br><span class="line">         <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(TreeNode* root,vector&lt;<span class="keyword">int</span>&gt;&amp;res)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root==NULL)<span class="keyword">return</span> ;</span><br><span class="line">        <span class="keyword">if</span>(root-&gt;left!=NULL)postorder(root-&gt;left,res);</span><br><span class="line">        <span class="keyword">if</span>(root-&gt;right!=NULL)postorder(root-&gt;right,res);</span><br><span class="line">        res.push_back(root-&gt;val);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>方法二：非递归方法<br>参考：<br><a href="http://zhidao.baidu.com/link?url=hi29Y_FNWekIU9L4YJV0hqzuzB6YXtQdH-7BJvfUUvzB731gxdH1_zMKfAZkBUo4JlhupBobBuq_usGqy-nrm_J9Fc79KE6i0WJ7tvb6sk3" target="_blank" rel="external">http://zhidao.baidu.com/link?url=hi29Y_FNWekIU9L4YJV0hqzuzB6YXtQdH-7BJvfUUvzB731gxdH1_zMKfAZkBUo4JlhupBobBuq_usGqy-nrm_J9Fc79KE6i0WJ7tvb6sk3</a><br>每次将节点的左结点放入栈中，对于最左节点，若存在右节点，则将其放入栈中，修改最左节点的右节点为空，同时将该右节点的左节点依次放入栈中。若找到一个最左节点，没有右节点，则该节点被访问。。。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// iterator</span></span><br><span class="line"><span class="comment">// reference:http://zhidao.baidu.com/link?url=hi29Y_FNWekIU9L4YJV0hqzuzB6YXtQdH-7BJvfUUvzB731gxdH1_zMKfAZkBUo4JlhupBobBuq_usGqy-nrm_J9Fc79KE6i0WJ7tvb6sk3</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">postorderTraversal</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">         vector&lt;<span class="keyword">int</span>&gt;res;</span><br><span class="line">         <span class="keyword">if</span>(root==NULL)<span class="keyword">return</span> res;</span><br><span class="line">         stack&lt;TreeNode*&gt;s;</span><br><span class="line">         TreeNode*p=root;</span><br><span class="line">         <span class="keyword">while</span>(p)&#123;</span><br><span class="line">            s.push(p);</span><br><span class="line">            p=p-&gt;left;</span><br><span class="line">			&#125;</span><br><span class="line">         <span class="keyword">while</span>(!s.empty())&#123;</span><br><span class="line">             p=s.top();</span><br><span class="line">             <span class="comment">//cout&lt;&lt;p-&gt;val&lt;&lt;endl;</span></span><br><span class="line">             <span class="keyword">if</span>(p-&gt;right)&#123;</span><br><span class="line">                 <span class="comment">//cout&lt;&lt;p-&gt;right-&gt;val&lt;&lt;endl;</span></span><br><span class="line">                 s.push(p-&gt;right);</span><br><span class="line">                 TreeNode*q=p-&gt;right;</span><br><span class="line">                 p-&gt;right=NULL;</span><br><span class="line">                 p=q;</span><br><span class="line">                 <span class="keyword">while</span>(p-&gt;left)&#123;</span><br><span class="line">					<span class="comment">//cout&lt;&lt;p-&gt;left-&gt;val&lt;&lt;"  fei"&lt;&lt;endl;</span></span><br><span class="line">					s.push(p-&gt;left);</span><br><span class="line">					p=p-&gt;left;</span><br><span class="line">				&#125;</span><br><span class="line">             &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                 s.pop();</span><br><span class="line">                 res.push_back(p-&gt;val);</span><br><span class="line">				&#125;</span><br><span class="line">             &#125;</span><br><span class="line">         <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>方法三：类似前序遍历，不过将访问顺序改为根结点，右节点，左节点的顺序，栈可以实现。该过程是后序遍历的逆序。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// another iterator</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">postorderTraversal</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">         vector&lt;<span class="keyword">int</span>&gt;res;</span><br><span class="line">         <span class="keyword">if</span>(root==NULL)<span class="keyword">return</span> res;</span><br><span class="line">         stack&lt;TreeNode*&gt;s;</span><br><span class="line">         s.push(root);</span><br><span class="line">         <span class="keyword">while</span>(!s.empty())&#123;</span><br><span class="line">             TreeNode*p=s.top();</span><br><span class="line">             s.pop();</span><br><span class="line">             res.push_back(p-&gt;val);</span><br><span class="line">             <span class="keyword">if</span>(p-&gt;left)s.push(p-&gt;left);</span><br><span class="line">             <span class="keyword">if</span>(p-&gt;right)s.push(p-&gt;right);</span><br><span class="line">         &#125;</span><br><span class="line">         std::reverse(res.begin(),res.end());</span><br><span class="line">         <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/">leetcode</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-46-Permutations" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/16/46-Permutations/" class="article-date">
+  	<time datetime="2016-03-16T11:49:40.000Z" itemprop="datePublished">2016-03-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/16/46-Permutations/">46. Permutations</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Given a collection of distinct numbers, return all possible permutations.</p>
+<p>For example,<br>[1,2,3] have the following permutations:<br>[1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], and [3,2,1].</p>
+<h2 id="结题报告">结题报告</h2><p>DFS。。。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">// 12 ms vector&lt;int&gt;tmp(n,0); save times </span></span><br><span class="line">	<span class="comment">// it costs 16ms if not knowing the size of tmp and using  push_back(),erase </span></span><br><span class="line">    vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; permute(vector&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="keyword">int</span> n=nums.size();</span><br><span class="line">        vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt;res;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span>)<span class="keyword">return</span> res;</span><br><span class="line">        <span class="keyword">int</span>*flag=<span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)flag[i]=<span class="number">0</span>;</span><br><span class="line">        vector&lt;<span class="keyword">int</span>&gt;tmp(n,<span class="number">0</span>);</span><br><span class="line">        dfs(res,nums,flag,tmp,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt;&amp;res,vector&lt;<span class="keyword">int</span>&gt;&amp;nums,<span class="keyword">int</span> *flag,vector&lt;<span class="keyword">int</span>&gt;&amp;tmp,<span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n=nums.size();</span><br><span class="line">        <span class="keyword">if</span>(j==n)&#123;</span><br><span class="line">            res.push_back(tmp);</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!flag[i])&#123;</span><br><span class="line">                tmp[j]=nums[i];</span><br><span class="line">                flag[i]=<span class="number">1</span>;</span><br><span class="line">                dfs(res,nums,flag,tmp,j+<span class="number">1</span>);</span><br><span class="line">                flag[i]=<span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/">leetcode</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-List之ArrayList源码分析" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/03/16/List之ArrayList源码分析/" class="article-date">
@@ -181,23 +297,12 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      List之ArrayList源码分析
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/16/List之ArrayList源码分析/">List之ArrayList源码分析</a>
     </h1>
   
 
       </header>
-      
-      <div class="article-info article-info-post">
-        
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-api/">java api</a></li></ul>
-	</div>
-
-        
-
-        <div class="clearfix"></div>
-      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -224,71 +329,217 @@
       
     </div>
     
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2016/03/16/46-Permutations/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          46. Permutations
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2016/03/16/153-Find-Minimum-in-Rotated-Sorted-Array/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">153. Find Minimum in Rotated Sorted Array</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-api/">java api</a></li></ul>
+	</div>
 
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
   
 </article>
 
 
-<div class="share">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">分享到：</span>
-		<a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+
+
+
+
+
+  
+    <article id="post-153-Find-Minimum-in-Rotated-Sorted-Array" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/16/153-Find-Minimum-in-Rotated-Sorted-Array/" class="article-date">
+  	<time datetime="2016-03-16T08:31:47.000Z" itemprop="datePublished">2016-03-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/16/153-Find-Minimum-in-Rotated-Sorted-Array/">153. Find Minimum in Rotated Sorted Array</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Suppose a sorted array is rotated at some pivot unknown to you beforehand.</p>
+<p>(i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).</p>
+<p>Find the minimum element.</p>
+<p>You may assume no duplicate exists in the array.</p>
+<p>结题思路：<br>方法一：遍历数组，判断是否存在nums[i-1]&gt;nums[i]的情况，若有则返回nums[i]，否则返回nums[0]。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 6ms</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findMin</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n=nums.size();</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">1</span>)<span class="keyword">return</span> nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i-<span class="number">1</span>]&gt;nums[i])<span class="keyword">return</span> nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>方法二：类二分法<br>将数组的中值与最右元素比较，若中间值大于最右元素，则说明右部分的数组存在递增递减的情况，即最小值在该区域内；若中间值小于最右元素，则最小区域在左部分。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 4ms</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findMin</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n=nums.size();</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">1</span>)<span class="keyword">return</span> nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> l=<span class="number">0</span>,r=n-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid=(l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid]&gt;nums[r])l=mid+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            r=mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums[l];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/">leetcode</a></li></ul>
 	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
 
+      
 
-
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="List之ArrayList源码分析" data-title="List之ArrayList源码分析" data-url="http://olivelv.github.io/2016/03/16/List之ArrayList源码分析/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
 
 
 
 
+
+
+
+  
+    <article id="post-98-Gary-Code" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/16/98-Gary-Code/" class="article-date">
+  	<time datetime="2016-03-16T08:28:47.000Z" itemprop="datePublished">2016-03-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/16/98-Gary-Code/">89. Gray Code</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>The gray code is a binary numeral system where two successive values differ in only one bit.</p>
+<p>Given a non-negative integer n representing the total number of bits in the code, print the sequence of gray code. A gray code sequence must begin with 0.</p>
+<p>For example, given n = 2, return [0,1,3,2]. Its gray code sequence is:</p>
+<p>00 - 0<br>01 - 1<br>11 - 3<br>10 - 2<br>Note:<br>For a given n, a gray code sequence is not uniquely defined.</p>
+<p>For example, [0,2,3,1] is also a valid gray code sequence according to the above definition.</p>
+<p>For now, the judge is able to judge based on one instance of gray code sequence. Sorry about that.</p>
+<p>解题思路：<br>当n=3时，假设前4个元素使用n=2的gray code，即[000,001,011,010]，那么剩下的数字都是1xx，只要将前4个元素逆序，再加上4即可，即[110,111,101,100]。。。构造方法就是这样的过程。。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">grayCode</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="keyword">int</span>&gt;res;</span><br><span class="line">        res.push_back(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span>)<span class="keyword">return</span> res;</span><br><span class="line">        res.push_back(<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">1</span>)<span class="keyword">return</span> res;</span><br><span class="line">        <span class="keyword">int</span> tmp=<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">int</span> num=(<span class="number">1</span>&lt;&lt;n);</span><br><span class="line">        <span class="keyword">while</span>(tmp!=num)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=tmp-<span class="number">1</span>;i&gt;=<span class="number">0</span>;i--)res.push_back(res[i]+tmp);</span><br><span class="line">            tmp&lt;&lt;=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/">leetcode</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-62. Unique Paths" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/16/62. Unique Paths/" class="article-date">
+  	<time datetime="2016-03-16T08:00:18.000Z" itemprop="datePublished">2016-03-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/16/62. Unique Paths/">62. Unique Paths</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>A robot is located at the top-left corner of a m x n grid (marked ‘Start’ in the diagram below).</p>
+<p>The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked ‘Finish’ in the diagram below).</p>
+<p>How many possible unique paths are there?</p>
+<p>Above is a 3 x 7 grid. How many possible unique paths are there?</p>
+<p>Note: m and n will be at most 100.     </p>
+<h3 id="解题思路：">解题思路：</h3><p>水题。。。。求c(n+m-2,min(n,m)-1)。注意乘法可能导致int溢出，将其先转换为long即可</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">uniquePaths</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">1</span>||m==<span class="number">1</span>)<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> tmp=m&gt;n?n-<span class="number">1</span>:m-<span class="number">1</span>;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i=m+n-<span class="number">2</span>,j=<span class="number">1</span>;j&lt;=tmp;i--,j++)</span><br><span class="line">       res=(<span class="keyword">int</span>)((<span class="keyword">long</span>)res*(<span class="keyword">long</span>)i/j);</span><br><span class="line">       <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/">leetcode</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
+  
 </div>
       <footer id="footer">
   <div class="outer">
@@ -318,8 +569,8 @@ var _hmt = _hmt || [];
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

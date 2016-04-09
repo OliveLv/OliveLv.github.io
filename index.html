@@ -103,7 +103,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/java-api/" style="font-size: 10px;">java api</a> <a href="/tags/leetcode/" style="font-size: 20px;">leetcode</a> <a href="/tags/主题/" style="font-size: 10px;">主题</a>
+						<a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/hihocoder/" style="font-size: 17.5px;">hihocoder</a> <a href="/tags/java-api/" style="font-size: 15px;">java api</a> <a href="/tags/leetcode/" style="font-size: 20px;">leetcode</a> <a href="/tags/主题/" style="font-size: 10px;">主题</a> <a href="/tags/笔试题/" style="font-size: 10px;">笔试题</a>
 					</div>
 				</section>
 				
@@ -163,6 +163,545 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-京东2016实习生在线编程题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/09/京东2016实习生在线编程题/" class="article-date">
+  	<time datetime="2016-04-09T15:21:07.000Z" itemprop="datePublished">2016-04-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/09/京东2016实习生在线编程题/">京东2016实习生在线编程题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="选举游戏"><strong>选举游戏</strong></h3><p><strong>解题思路</strong><br>不断寻找数组中的最大值，若最大值不是小东，则争取当前投票数最大的候选人1票，直到最大值为小东。这种方法耗时会比较久，但是对于n不是特别大的情况还是可以接受的。<br>以下代码是100%通过。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">105</span>];</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;n)&#123;</span><br><span class="line">          <span class="keyword">int</span> max=<span class="number">0</span>;</span><br><span class="line">          <span class="keyword">int</span> maxi=<span class="number">0</span>;</span><br><span class="line">    	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">              <span class="built_in">cin</span>&gt;&gt;a[i];</span><br><span class="line">              <span class="keyword">if</span>(max&lt;=a[i])&#123;</span><br><span class="line">                    max=a[i];</span><br><span class="line">                    maxi=i;</span><br><span class="line">              &#125;</span><br><span class="line">        &#125;</span><br><span class="line">          <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">          <span class="keyword">while</span>(maxi!=<span class="number">0</span>)&#123;</span><br><span class="line">     		a[<span class="number">0</span>]++;</span><br><span class="line">            a[maxi]--;</span><br><span class="line">            ans++;</span><br><span class="line">            max=<span class="number">0</span>;</span><br><span class="line">            maxi=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">                      <span class="keyword">if</span>(max&lt;=a[i])&#123;</span><br><span class="line">                      	max=a[i];</span><br><span class="line">                        maxi=i;</span><br><span class="line">                      &#125;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="三子棋"><strong>三子棋</strong></h3><p>这个题目只过了60%，实在不知道没有考虑到哪里。<br>计算画叉的人的下棋数目x，画圈的人下棋数目o，空白的数目为d。<br>1.首先判断棋局是否不合法<br>给定棋局不合法的情况包括：</p>
+<ul>
+<li>o+d+x！=9</li>
+<li>o&lt;x</li>
+<li>x-o&gt;1</li>
+<li>画叉赢，并且画圈也赢<br>2.然后判断是否有画叉和画圈的赢<br>3.如果d=0，则为平局<br>4.最后则判断下一轮先下棋的人</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">char</span> a[<span class="number">3</span>][<span class="number">3</span>];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">valid</span><span class="params">(<span class="keyword">char</span> c)</span></span>&#123;</span><br><span class="line">	<span class="comment">//cout&lt;&lt;1&lt;&lt;endl;</span></span><br><span class="line">	<span class="comment">// 水平</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> j=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(;j&lt;<span class="number">3</span>;j++)</span><br><span class="line">			<span class="keyword">if</span>(a[i][j]!=c)<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">if</span>(j==<span class="number">3</span>)<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//cout&lt;&lt;2&lt;&lt;endl;</span></span><br><span class="line">	<span class="comment">// 垂直</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> j=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(;j&lt;<span class="number">3</span>;j++)</span><br><span class="line">			<span class="keyword">if</span>(a[j][i]!=c)<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">if</span>(j==<span class="number">3</span>)<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//cout&lt;&lt;3&lt;&lt;endl;</span></span><br><span class="line">	<span class="comment">// 对角</span></span><br><span class="line">	<span class="keyword">int</span> i=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(;i&lt;<span class="number">3</span>;i++)</span><br><span class="line">		<span class="keyword">if</span>(a[i][i]!=c)<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">if</span>(i==<span class="number">3</span>)<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)</span><br><span class="line">		<span class="keyword">if</span>(a[i][<span class="number">2</span>-i]!=c)<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">if</span>(i==<span class="number">3</span>)<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%s"</span>,a[<span class="number">0</span>])!=EOF)&#123;</span><br><span class="line">		<span class="comment">//getchar();</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">2</span>;i++)&#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%*c%s"</span>,a[i]);</span><br><span class="line">			<span class="comment">//getchar();</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//for(int i=0;i&lt;3;i++)&#123;</span></span><br><span class="line">		<span class="comment">//	for(int j=0;j&lt;3;j++)</span></span><br><span class="line">		<span class="comment">//		cout&lt;&lt;a[i][j];</span></span><br><span class="line">		<span class="comment">//	cout&lt;&lt;endl;</span></span><br><span class="line">		<span class="comment">//&#125;</span></span><br><span class="line">		<span class="keyword">int</span> x=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> o=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> d=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">3</span>;j++)</span><br><span class="line">				<span class="keyword">if</span>(a[i][j]==<span class="string">'X'</span>)x++;</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">					<span class="keyword">if</span>(a[i][j]==<span class="string">'0'</span>)o++;</span><br><span class="line">					<span class="keyword">else</span></span><br><span class="line">						<span class="keyword">if</span>(a[i][j]==<span class="string">'.'</span>)d++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>((x+o+d)!=<span class="number">9</span>||<span class="built_in">abs</span>(x-o)&gt;<span class="number">1</span>||o&gt;x)&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">"x"</span>&lt;&lt;endl;</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">bool</span> vx=valid(<span class="string">'X'</span>);</span><br><span class="line">		<span class="keyword">bool</span> vo=valid(<span class="string">'0'</span>);</span><br><span class="line">		<span class="keyword">if</span>(vx&amp;&amp;vo)&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">"x"</span>&lt;&lt;endl;</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(vx)&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">"1 won"</span>&lt;&lt;endl;</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(vo)&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">"2 won"</span>&lt;&lt;endl;</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(d==<span class="number">0</span>)&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">"draw"</span>&lt;&lt;endl;</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(x==o)&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">"1"</span>&lt;&lt;endl;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">"2"</span>&lt;&lt;endl;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔试题/">笔试题</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-OutputStream源码分析" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/07/OutputStream源码分析/" class="article-date">
+  	<time datetime="2016-04-07T09:27:24.000Z" itemprop="datePublished">2016-04-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/07/OutputStream源码分析/">OutputStream源码分析</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>OutputSream是一个抽象类，属于字节流的写。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.Closeable;</span><br><span class="line"><span class="keyword">import</span> java.io.Flushable;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 该抽象类是所有字节输出流的超类。一个输出流接受输出字节并将它们发送到池里(sink)</span><br><span class="line"> * 定义OutputStream的子类至少要实现写一个字节到输出流这个方法。</span><br><span class="line"> *</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">OutputStream</span> <span class="keyword">implements</span> <span class="title">Closeable</span>, <span class="title">Flushable</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 将特定的字节写到输出流。一般是将一个字节写到输出流。要写入的字节是参数b的低8位，高24位将被忽略。</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span>      b   the &lt;code&gt;byte&lt;/code&gt;.</span><br><span class="line">     * <span class="doctag">@exception</span>  IOException  if an I/O error occurs. In particular,</span><br><span class="line">     *             an &lt;code&gt;IOException&lt;/code&gt; may be thrown if the</span><br><span class="line">     *             output stream has been closed.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">int</span> b)</span> <span class="keyword">throws</span> IOException</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 从给定的字节数组写到输出流b.length个字节。</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span>      b   the data.</span><br><span class="line">     * <span class="doctag">@exception</span>  IOException  if an I/O error occurs.</span><br><span class="line">     * <span class="doctag">@see</span>        java.io.OutputStream#write(byte[], int, int)</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">byte</span> b[])</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        write(b, <span class="number">0</span>, b.length);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 从给定的字节数组起始偏移地址为off读取字节数目为len有序写到输出流中。</span><br><span class="line">     * 第一个写入的字节是b[off]，最后一个写入的字节是b[off+len-1]。</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span>      b     the data.</span><br><span class="line">     * <span class="doctag">@param</span>      off   数据的起始偏移地址.</span><br><span class="line">     * <span class="doctag">@param</span>      len   写到输出流的字节数目.</span><br><span class="line">     * <span class="doctag">@exception</span>  IOException  if an I/O error occurs. In particular,</span><br><span class="line">     *             an &lt;code&gt;IOException&lt;/code&gt; is thrown if the output</span><br><span class="line">     *             stream is closed.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">byte</span> b[], <span class="keyword">int</span> off, <span class="keyword">int</span> len)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (b == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> ((off &lt; <span class="number">0</span>) || (off &gt; b.length) || (len &lt; <span class="number">0</span>) ||</span><br><span class="line">                   ((off + len) &gt; b.length) || ((off + len) &lt; <span class="number">0</span>)) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IndexOutOfBoundsException();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (len == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; len ; i++) &#123;</span><br><span class="line">            write(b[off + i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 刷新输出流并强制将缓存字节写完。它不保证这些数据被真的写入物理设备。</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@exception</span>  IOException  if an I/O error occurs.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">flush</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 关闭输出流并释放与其相关的系统资源。已关闭的流无法执行输出操作且不能被重新打开。</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@exception</span>  IOException  if an I/O error occurs.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">close</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-api/">java api</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-InputSteam源码分析" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/07/InputSteam源码分析/" class="article-date">
+  	<time datetime="2016-04-07T08:41:38.000Z" itemprop="datePublished">2016-04-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/07/InputSteam源码分析/">InputSteam源码分析</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>InputStream是一个抽象类，属于字节流的读取。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 该抽象类是所有字节输入流的超类。</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">InputStream</span> <span class="keyword">implements</span> <span class="title">Closeable</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">        <span class="comment">// 该变量用于确定在skip方法中使用的最大缓存数组大小。</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MAX_SKIP_BUFFER_SIZE = <span class="number">2048</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 从输入流中读取下一字节数据。返回的字节值为一个范围在0-255之间的int数。若由于到达流的尾部而没有字节可获取，则返回-1.</span><br><span class="line">     * 直到数据可达，检测到流的末尾或者抛出一个异常，该方法才停止。</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@return</span>     下一个字节，若到达输入流结尾，则返回-1.</span><br><span class="line">     * <span class="doctag">@exception</span>  IOException  if an I/O error occurs.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> <span class="keyword">throws</span> IOException</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 从输入流中读取一些字节并将它们存储到缓存数组b中。</span><br><span class="line">     * 若b的长度为0，则没有字节被读取，返回0；若由于流在文件的尾部，没有字节可读，则返回-1。</span><br><span class="line">     * 读取的第一个字节保存到b[0]，下一个保存到b[1]，以此类推。读取字节的数组小于等于数组b的长度。</span><br><span class="line">     * </span><br><span class="line">     * <span class="doctag">@param</span>      b   缓存所读取的数据</span><br><span class="line">     * <span class="doctag">@return</span>     读取字节数到缓存的数目。由于到达流的结尾而不可读取数据时，返回-1.</span><br><span class="line">     * <span class="doctag">@exception</span>  IOException  若输入流已经关闭或者其他I/O错误发生所导致第一个字节不能被读取而抛出的异常。不考虑到达文件尾部的情况。</span><br><span class="line">     * <span class="doctag">@exception</span>  NullPointerException  b==null的情况</span><br><span class="line">     * <span class="doctag">@see</span>        java.io.InputStream#read(byte[], int, int)</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">(<span class="keyword">byte</span> b[])</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> read(b, <span class="number">0</span>, b.length);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 从输入流读取len个字节数据，并保存到数组中。读取的数组最多为len。真正读取的字节数目将作为返回值返回。</span><br><span class="line">     * 若len=0，则没有字节需要读取，返回为0；若字节不可达，则返回-1。</span><br><span class="line">     * 读取到的第一个字节保存到b[off]中，下一个保存在b[off+1]，以此类推。</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span>      b     缓存所读取的数据</span><br><span class="line">     * <span class="doctag">@param</span>      off   将读取的数据写入数组b的起始偏移地址</span><br><span class="line">     * <span class="doctag">@param</span>      len   读取的最大字节数组</span><br><span class="line">     * <span class="doctag">@return</span>     保存到buffer中真正的字节数，若由于到达流的结尾而无法读取数据，返回-1.</span><br><span class="line">     * <span class="doctag">@exception</span>  IOException If the first byte cannot be read for any reason</span><br><span class="line">     * other than end of file, or if the input stream has been closed, or if</span><br><span class="line">     * some other I/O error occurs.</span><br><span class="line">     * <span class="doctag">@exception</span>  NullPointerException b==null的情况.</span><br><span class="line">     * <span class="doctag">@exception</span>  IndexOutOfBoundsException 若off或len为负，或者len&gt;b.length-off时，抛出该异常。</span><br><span class="line">     * <span class="doctag">@see</span>        java.io.InputStream#read()</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">(<span class="keyword">byte</span> b[], <span class="keyword">int</span> off, <span class="keyword">int</span> len)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (b == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (off &lt; <span class="number">0</span> || len &lt; <span class="number">0</span> || len &gt; b.length - off) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IndexOutOfBoundsException();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (len == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">int</span> c = read();</span><br><span class="line">        <span class="keyword">if</span> (c == -<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        b[off] = (<span class="keyword">byte</span>)c;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (; i &lt; len ; i++) &#123;</span><br><span class="line">                c = read();</span><br><span class="line">                <span class="keyword">if</span> (c == -<span class="number">1</span>) &#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                b[off + i] = (<span class="keyword">byte</span>)c;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException ee) &#123;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 跳过输入流的n个字节的数据，并返回真正跳过的字节数目。若n为负，则没有字节被跳过。</span><br><span class="line">     * 方法skip会创建一个字节数组，不断读取字节到该数组中，直到n个字节被读取或到达输入流的结尾。</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span>      n   被跳过的字节数目.</span><br><span class="line">     * <span class="doctag">@return</span>     真正被跳过的字节数目.</span><br><span class="line">     * <span class="doctag">@exception</span>  IOException  if the stream does not support seek,</span><br><span class="line">     *                          or if some other I/O error occurs.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">skip</span><span class="params">(<span class="keyword">long</span> n)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">long</span> remaining = n;</span><br><span class="line">        <span class="keyword">int</span> nr;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">if</span> (n &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">int</span> size = (<span class="keyword">int</span>)Math.min(MAX_SKIP_BUFFER_SIZE, remaining);</span><br><span class="line">        <span class="keyword">byte</span>[] skipBuffer = <span class="keyword">new</span> <span class="keyword">byte</span>[size];</span><br><span class="line">        <span class="keyword">while</span> (remaining &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            nr = read(skipBuffer, <span class="number">0</span>, (<span class="keyword">int</span>)Math.min(size, remaining));</span><br><span class="line">            <span class="keyword">if</span> (nr &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            remaining -= nr;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">return</span> n - remaining;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 返回一个可以在该输入流中读取（或跳过）的字节数的估计，而不阻塞此输入流的下一次调用。</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@return</span>     an estimate of the number of bytes that can be read (or skipped</span><br><span class="line">     *             over) from this input stream without blocking or &#123;<span class="doctag">@code</span> 0&#125; when</span><br><span class="line">     *             it reaches the end of the input stream.</span><br><span class="line">     * <span class="doctag">@exception</span>  IOException if an I/O error occurs.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">available</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 关闭输入流并释放与其相关的系统资源。</span><br><span class="line">     *</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@exception</span>  IOException  if an I/O error occurs.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">close</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;&#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 标记输入流中当前的位置。当调用reset方法可以回到上次标记的位置，使得后面可以重新读取相同的字节。</span><br><span class="line">     * 参数readlimit告诉输入流允许被读取的字节数目。超过该数目，则标记位失效（invalid）</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span>   readlimit   在标志位变为invalid之前，可被读取的最大字节数目.</span><br><span class="line">     * <span class="doctag">@see</span>     java.io.InputStream#reset()</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">mark</span><span class="params">(<span class="keyword">int</span> readlimit)</span> </span>&#123;&#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 将流重定位到最后一次对此输入流调用mark方法时的位置。</span><br><span class="line">     * 当markSupported方法返回true，则</span><br><span class="line">     * 1、若mark方法自创建流以来从未被调用或者从流中读取的字节数目超过上次调用mark方法所定义的readlimit，则抛出IOException异常。</span><br><span class="line">     * 2、若未抛出IOException，则将该流重新设置为状态：最近一次调用mark后（若未调用过mark，则从文件开头开始）读取的所有字节重新提供</span><br><span class="line">     * 给read方法的后续调用者，如何从调用reset时起将作为下一输入数据的字节。</span><br><span class="line">     * 当markSupported方法返回false，则</span><br><span class="line">     * 1、调用reset方法会抛出IOException</span><br><span class="line">     * 2、若IOException未被抛出，则流将被重置到一个固定状态，该状态依赖于输入流的类型和被创建的方式。。。。</span><br><span class="line">     * The bytes that will be supplied to subsequent callers of the &lt;code&gt;read&lt;/code&gt; method depend on the</span><br><span class="line">     * particular type of the input stream. </span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@exception</span>  IOException  若流未被标记或者标记失效。</span><br><span class="line">     * <span class="doctag">@see</span>     java.io.InputStream#mark(int)</span><br><span class="line">     * <span class="doctag">@see</span>     java.io.IOException</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">reset</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IOException(<span class="string">"mark/reset not supported"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 测试输入流是否支持test和reset方法。所支持的mark和reset是否是输入流实例的不变属性。</span><br><span class="line">     * InputStream的markSupported方法返回false。</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@return</span>  若流实例支持mark和reset方法，返回true；否则返回false。</span><br><span class="line">     * <span class="doctag">@see</span>     java.io.InputStream#mark(int)</span><br><span class="line">     * <span class="doctag">@see</span>     java.io.InputStream#reset()</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">markSupported</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-api/">java api</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-hihocoder-1288-Font-Size-微软2016校园招聘4月在线笔试" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/07/hihocoder-1288-Font-Size-微软2016校园招聘4月在线笔试/" class="article-date">
+  	<time datetime="2016-04-07T01:16:59.000Z" itemprop="datePublished">2016-04-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/07/hihocoder-1288-Font-Size-微软2016校园招聘4月在线笔试/">hihocoder 1288:Font Size--微软2016校园招聘4月在线笔试</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1288_:_Font_Size">1288 : Font Size</h2><p>时间限制:10000ms<br>单点时限:1000ms<br>内存限制:256MB</p>
+<p><strong>描述</strong><br>Steven loves reading book on his phone. The book he reads now consists of N paragraphs and the i-th paragraph contains ai characters.</p>
+<p>Steven wants to make the characters easier to read, so he decides to increase the font size of characters. But the size of Steven’s phone screen is limited. Its width is W and height is H. As a result, if the font size of characters is S then it can only show ⌊W / S⌋ characters in a line and ⌊H / S⌋ lines in a page. (⌊x⌋ is the largest integer no more than x)  </p>
+<p>So here’s the question, if Steven wants to control the number of pages no more than P, what’s the maximum font size he can set? Note that paragraphs must start in a new line and there is no empty line between paragraphs.</p>
+<p><strong>输入</strong><br>Input may contain multiple test cases.</p>
+<p>The first line is an integer TASKS, representing the number of test cases.</p>
+<p>For each test case, the first line contains four integers N, P, W and H, as described above.</p>
+<p>The second line contains N integers a1, a2, … aN, indicating the number of characters in each paragraph.</p>
+<p>For all test cases,</p>
+<p>1 &lt;= N &lt;= 103,</p>
+<p>1 &lt;= W, H, ai &lt;= 103,</p>
+<p>1 &lt;= P &lt;= 106,</p>
+<p>There is always a way to control the number of pages no more than P.</p>
+<p><strong>输出</strong><br>For each testcase, output a line with an integer Ans, indicating the maximum font size Steven can set.</p>
+<p><strong>样例输入</strong></p>
+<blockquote>
+<p>2<br>1 10 4 3<br>10<br>2 10 4 3<br>10 10</p>
+</blockquote>
+<p><strong>样例输出</strong></p>
+<blockquote>
+<p>3<br>2</p>
+</blockquote>
+<p><strong>解题思路</strong><br>水题。遍历所有的字体大小，计算需要的行数，进而计算页数。。。注意，每段要分行，段首不考虑是否缩进。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t,n,p,w,h;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;t)&#123;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;p&gt;&gt;w&gt;&gt;h;</span><br><span class="line">		<span class="keyword">int</span> flag=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> *a=<span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)<span class="built_in">cin</span>&gt;&gt;a[i];</span><br><span class="line">        <span class="keyword">int</span> ans=w&gt;h?h:w;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> s=ans;s&gt;=<span class="number">1</span>;s--)&#123;</span><br><span class="line">            <span class="keyword">int</span> k=<span class="number">0</span>;</span><br><span class="line">			<span class="keyword">int</span> tmp=w/s;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">                k+=a[i]/tmp;</span><br><span class="line">                <span class="keyword">if</span>(a[i]%tmp)k++;</span><br><span class="line">            &#125;</span><br><span class="line">			tmp=h/s;</span><br><span class="line">			<span class="keyword">int</span> kk=k/tmp;</span><br><span class="line">			<span class="keyword">if</span>(k%tmp)kk++;</span><br><span class="line">            <span class="keyword">if</span>(kk&lt;=p)&#123;</span><br><span class="line">                <span class="built_in">cout</span>&lt;&lt;s&lt;&lt;endl;</span><br><span class="line">				flag=<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">		<span class="keyword">if</span>(!flag)<span class="built_in">cout</span>&lt;&lt;<span class="number">0</span>&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hihocoder/">hihocoder</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-hihocoder-1051-补提交卡" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/06/hihocoder-1051-补提交卡/" class="article-date">
+  	<time datetime="2016-04-06T08:25:20.000Z" itemprop="datePublished">2016-04-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/06/hihocoder-1051-补提交卡/">hihocoder 1051:补提交卡</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1051_:_补提交卡">1051 : 补提交卡</h2><p>时间限制:2000ms<br>单点时限:1000ms<br>内存限制:256MB</p>
+<p><strong>描述</strong><br>小Ho给自己定了一个宏伟的目标：连续100天每天坚持在hihoCoder上提交一个程序。100天过去了，小Ho查看自己的提交记录发现有N天因为贪玩忘记提交了。于是小Ho软磨硬泡、强忍着小Hi鄙视的眼神从小Hi那里要来M张”补提交卡”。每张”补提交卡”都可以补回一天的提交，将原本没有提交程序的一天变成有提交程序的一天。小Ho想知道通过利用这M张补提交卡，可以使自己的”最长连续提交天数”最多变成多少天。</p>
+<p><strong>输入</strong><br>第一行是一个整数T(1 &lt;= T &lt;= 10)，代表测试数据的组数。</p>
+<p>每个测试数据第一行是2个整数N和M(0 &lt;= N, M &lt;= 100)。第二行包含N个整数a1, a2, … aN(1 &lt;= a1 &lt; a2 &lt; … &lt; aN &lt;= 100)，表示第a1, a2, …  aN天小Ho没有提交程序。</p>
+<p><strong>输出</strong><br>对于每组数据，输出通过使用补提交卡小Ho的最长连续提交天数最多变成多少。</p>
+<p><strong>样例输入</strong></p>
+<blockquote>
+<p>3<br>5 1<br>34 77 82 83 84<br>5 2<br>10 30 55 56 90<br>5 10<br>10 30 55 56 90</p>
+</blockquote>
+<p><strong>样例输出</strong></p>
+<blockquote>
+<p>76<br>59<br>100</p>
+</blockquote>
+<p><strong>解题思路</strong><br>不是非常理解这个题目的意思，看了别人的题解，好像必须<strong>连续</strong>补回M天，只不过从第几天开始不确定，这样的话，就只要遍历下数组，假设补回a[i]…a[i+m-1]，则连续提交天数为a[i+m]-a[i-1]-1。特殊情况，M&gt;=n时，最大连续提交天数即为100.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="keyword">int</span> n, m;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m;</span><br><span class="line">        <span class="keyword">int</span> *a=<span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">2</span>];</span><br><span class="line">        a[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">        a[n+<span class="number">1</span>]=<span class="number">101</span>;</span><br><span class="line">        <span class="keyword">int</span> Max=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;a[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(n&lt;=m)&#123;</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="number">100</span>&lt;&lt;endl;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=m;i&lt;=n;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> tmp=a[i+<span class="number">1</span>]-a[i-m]-<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(Max&lt;tmp)Max=tmp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;Max&lt;&lt;endl; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hihocoder/">hihocoder</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-hihocoder-1135-Magic-Box" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/06/hihocoder-1135-Magic-Box/" class="article-date">
+  	<time datetime="2016-04-06T07:12:59.000Z" itemprop="datePublished">2016-04-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/06/hihocoder-1135-Magic-Box/">hihoCoder 1135: Magic Box</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1135_:_Magic_Box">1135 : Magic Box</h2><p>时间限制:10000ms<br>单点时限:1000ms<br>内存限制:256MB<br>描述<br>The circus clown Sunny has a magic box. When the circus is performing, Sunny puts some balls into the box one by one. The balls are in three colors: red(R), yellow(Y) and blue(B). Let Cr, Cy, Cb denote the numbers of red, yellow, blue balls in the box. Whenever the differences among Cr, Cy, Cb happen to be x, y, z, all balls in the box vanish. Given x, y, z and the sequence in which Sunny put the balls, you are to find what is the maximum number of balls in the box ever.</p>
+<p>For example, let’s assume x=1, y=2, z=3 and the sequence is RRYBRBRYBRY. After Sunny puts the first 7 balls, RRYBRBR, into the box, Cr, Cy, Cb are 4, 1, 2 respectively. The differences are exactly 1, 2, 3. (|Cr-Cy|=3, |Cy-Cb|=1, |Cb-Cr|=2) Then all the 7 balls vanish. Finally there are 4 balls in the box, after Sunny puts the remaining balls. So the box contains 7 balls at most, after Sunny puts the first 7 balls and before they vanish.</p>
+<p><strong>输入</strong><br>Line 1: x y z</p>
+<p>Line 2: the sequence consisting of only three characters ‘R’, ‘Y’ and ‘B’.</p>
+<p>For 30% data, the length of the sequence is no more than 200.</p>
+<p>For 100% data, the length of the sequence is no more than 20,000, 0 &lt;= x, y, z &lt;= 20.</p>
+<p><strong>输出</strong><br>The maximum number of balls in the box ever.</p>
+<p><strong>样例输入</strong></p>
+<blockquote>
+<p>1 2 3<br>RRYBRBRYBRY<br>0 0 0<br>RBYRRBY    </p>
+</blockquote>
+<p><strong>样例输出</strong></p>
+<blockquote>
+<p>7<br>4</p>
+</blockquote>
+<p><strong>解题思路</strong><br>题目意思是顺序将序列对应的气球放到box中，每次判断box中不同颜色气球的差是否正好等于x，y，z，若相等，则在box中的气球都爆炸。求在爆炸之前box中放的最大气球数目。<br>直接暴力方法就可以解决。使用数组a保存x，y，z（但数组是有序的，从小到大），使用数组b保存不同颜色气球的差，b[0]=[‘R’]-[‘Y’]，b[1]=[‘R’]-[‘B’]，b[2]=[‘Y’]-[‘B’]。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">compare</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> b[])</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> c[<span class="number">3</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)c[i]=<span class="built_in">abs</span>(b[i]);</span><br><span class="line">    sort(c,c+<span class="number">3</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)</span><br><span class="line">        <span class="keyword">if</span>(a[i]!=c[i])<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">3</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;a[<span class="number">0</span>]&gt;&gt;a[<span class="number">1</span>]&gt;&gt;a[<span class="number">2</span>])&#123;</span><br><span class="line">        sort(a,a+<span class="number">3</span>);</span><br><span class="line">        <span class="built_in">string</span> s;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;s;</span><br><span class="line">        <span class="keyword">int</span> n=s.length();</span><br><span class="line">        <span class="keyword">int</span> m=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> cur=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> b[<span class="number">3</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i]==<span class="string">'R'</span>)&#123;</span><br><span class="line">                b[<span class="number">0</span>]++;</span><br><span class="line">                b[<span class="number">1</span>]++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(s[i]==<span class="string">'Y'</span>)&#123;</span><br><span class="line">                b[<span class="number">2</span>]++;</span><br><span class="line">                b[<span class="number">0</span>]--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                b[<span class="number">2</span>]--;</span><br><span class="line">                b[<span class="number">1</span>]--;</span><br><span class="line">            &#125;</span><br><span class="line">            cur++;</span><br><span class="line">            <span class="keyword">if</span>(compare(a,b))&#123;</span><br><span class="line">                <span class="keyword">if</span>(m&lt;cur)m=cur;</span><br><span class="line">                cur=<span class="number">0</span>;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)b[i]=<span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(m&lt;cur)m=cur;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;m&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hihocoder/">hihocoder</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-hihocoder-1197-Give-My-Text-Back" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/05/hihocoder-1197-Give-My-Text-Back/" class="article-date">
+  	<time datetime="2016-04-05T08:51:27.000Z" itemprop="datePublished">2016-04-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/05/hihocoder-1197-Give-My-Text-Back/">hihocoder 1197:Give My Text Back</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1197_:_Give_My_Text_Back">1197 : Give My Text Back</h2><p>时间限制:10000ms<br>单点时限:1000ms<br>内存限制:256MB<br>描述<br>To prepare for the English exam Little Ho collected many digital reading materials. Unfortunately the materials are messed up by a malware.</p>
+<p>It is known that the original text contains only English letters (a-zA-Z), spaces, commas, periods and newlines, conforming to the following format:</p>
+<ol>
+<li><p>Each sentence contains at least one word, begins with a letter and ends with a period.</p>
+</li>
+<li><p>In a sentence the only capitalized letter is the first letter.</p>
+</li>
+<li><p>In a sentence the words are separated by a single space or a comma and a space.</p>
+</li>
+<li><p>The sentences are separated by a single space or a single newline.</p>
+</li>
+</ol>
+<p>It is also known the malware changes the text in the following ways:</p>
+<ol>
+<li><p>Changing the cases of letters.</p>
+</li>
+<li><p>Adding spaces between words and punctuations.</p>
+</li>
+</ol>
+<p>Given the messed text, can you help Little Ho restore the original text?</p>
+<p><strong>输入</strong></p>
+<blockquote>
+<p>A string containing no more than 8192 English letters (a-zA-Z), spaces, commas, periods and newlines which is the messed text.</p>
+</blockquote>
+<p><strong>输出</strong></p>
+<blockquote>
+<p>The original text.</p>
+</blockquote>
+<p><strong>样例输入</strong></p>
+<blockquote>
+<p>my Name  is Little   Hi.<br>His   name IS Little ho  ,  We are   friends.    </p>
+</blockquote>
+<p><strong>样例输出</strong></p>
+<blockquote>
+<p>My name is little hi.<br>His name is little ho, we are friends.</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**   </span><br><span class="line"> * <span class="doctag">@Title</span>: GiveMyTextBack.java </span><br><span class="line"> * <span class="doctag">@author</span> olivelv  </span><br><span class="line"> * <span class="doctag">@date</span> Apr 4, 2016 4:11:53 PM  </span><br><span class="line"> * </span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * test:</span><br><span class="line"> *  my Name  is Little   Hi. ami           .i hate      hiho                     ,codr. EEENNN.</span><br><span class="line">   His   name IS Little ho  ,  We are   friends.</span><br><span class="line"> my Name  is Little   Hi.His   name IS Little ho  ,  We are   friends.</span><br><span class="line">my Name  is Little   Hi. His   name IS Little ho  ,  We are   friends.</span><br><span class="line"> His   name IS Little ho  ,We are   friends.   weoifj   ,jo.</span><br><span class="line">Jo, f, j l, o,o, l.</span><br><span class="line">result:</span><br><span class="line">My name is little hi. Ami. I hate hiho, codr. Eeennn.</span><br><span class="line">His name is little ho, we are friends.</span><br><span class="line">My name is little hi. His name is little ho, we are friends.</span><br><span class="line">My name is little hi. His name is little ho, we are friends.</span><br><span class="line">His name is little ho, we are friends. Weoifj, jo.</span><br><span class="line">规则：</span><br><span class="line">1、遇到','或者'.'如果后面还有内容，则要用“空格”间隔开</span><br><span class="line">2、每个输入可能宝航多个句子  每个句子的开头单词的首字母都要大写</span><br><span class="line">3、整段句的最后以'.'结尾，不应多加空格，否则会报“PE”</span><br><span class="line">解题思路</span><br><span class="line">首先将字符串转换为小写。使用标记量flag和first进行标识。</span><br><span class="line">flag 记录前一个字符是否为空格  flag=0 表示前一个字符为空格，flag=1表示前一个为非空格</span><br><span class="line">first 记录是否是句首 first=0表示句首，first=1 表示非句首</span><br><span class="line">遇到','或'.'，则在其后添加“空格”。遇到字母时，若不是句首（first！=0），前一个字符为空格（flag=0），且结果字符最后一个字符不是空格，则添加一个“空格”。</span><br><span class="line"> *</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GiveMyTextBack</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</span><br><span class="line">		Scanner cin=<span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		String s;</span><br><span class="line">		<span class="keyword">while</span>(cin.hasNext())&#123;</span><br><span class="line">			s=cin.nextLine();</span><br><span class="line">			s=s.toLowerCase();</span><br><span class="line">			<span class="keyword">int</span> n=s.length();</span><br><span class="line">			<span class="keyword">int</span> flag=<span class="number">0</span>;</span><br><span class="line">			<span class="keyword">int</span> first=<span class="number">0</span>;</span><br><span class="line">			String res=<span class="string">""</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">				<span class="keyword">char</span> tmp=s.charAt(i);</span><br><span class="line">				<span class="keyword">if</span>(tmp!=<span class="string">' '</span>)&#123;</span><br><span class="line">					<span class="keyword">if</span>(tmp==<span class="string">','</span>)&#123;</span><br><span class="line">						res+=tmp;</span><br><span class="line">						res+=<span class="string">' '</span>;</span><br><span class="line">					&#125;</span><br><span class="line">					<span class="keyword">else</span> <span class="keyword">if</span>(tmp==<span class="string">'.'</span>)&#123;</span><br><span class="line">						res+=tmp+<span class="string">" "</span>;</span><br><span class="line">						first=<span class="number">0</span>;</span><br><span class="line">					&#125;</span><br><span class="line">					<span class="keyword">else</span>&#123;</span><br><span class="line">						<span class="keyword">if</span>(flag==<span class="number">0</span>&amp;&amp;first!=<span class="number">0</span>&amp;&amp;!res.endsWith(<span class="string">" "</span>))res+=<span class="string">' '</span>;</span><br><span class="line">						<span class="keyword">if</span>(first==<span class="number">0</span>)&#123;</span><br><span class="line">							res+=(<span class="keyword">char</span>)(tmp-<span class="string">'a'</span>+<span class="string">'A'</span>);</span><br><span class="line">							first=<span class="number">1</span>;</span><br><span class="line">						&#125;<span class="keyword">else</span></span><br><span class="line">							res+=tmp;</span><br><span class="line">						flag=<span class="number">1</span>;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;<span class="keyword">else</span></span><br><span class="line">					flag=<span class="number">0</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(res.trim());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hihocoder/">hihocoder</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-338-Counting-Bits" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/22/338-Counting-Bits/" class="article-date">
+  	<time datetime="2016-03-22T03:25:25.000Z" itemprop="datePublished">2016-03-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/22/338-Counting-Bits/">338. Counting Bits</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1’s in their binary representation and return them as an array.</p>
+<p>Example:<br>For num = 5 you should return [0,1,1,2,1,2].</p>
+<p>Follow up:</p>
+<p>It is very easy to come up with a solution with run time O(n*sizeof(integer)). But can you do it in linear time O(n) /possibly in a single pass?<br>Space complexity should be O(n).<br>Can you do it like a boss? Do it without using any builtin function like __builtin_popcount in c++ or in any other language.</p>
+<p>解题思路：<br>这个题目类似89. Gray Code，找规律<br>0 - 0<br>1 - 1<br>2 - 1<br>3 - 2<br>4 - 1<br>5 - 2<br>6 - 2<br>7 - 3<br>8 - 1<br>$[2^{(i-1)},2^i-1]$是由$[0,2^{(i-1)}-1]$数组+1得到的。例如上面的[4,7]的值是由[0,3]+1得到的。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; countBits(<span class="keyword">int</span> num) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;res(num+<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">int</span> base=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> k=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(k&lt;=num)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;base&amp;&amp;k&lt;=num;j++)</span><br><span class="line">                res[k++]=res[j]+<span class="number">1</span>;</span><br><span class="line">            base&lt;&lt;=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">         </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/">leetcode</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-git-hexo之同步发布博客" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -202,7 +741,7 @@
 <p>对submodule进行了修改，提交方法（<a href="http://stackoverflow.com/questions/5814319/git-submodule-push）" target="_blank" rel="external">http://stackoverflow.com/questions/5814319/git-submodule-push）</a><br>首先进入submodule的文件夹，将修改的文件提交<br>然后返回工程目录，提交修改。。。即可</p>
 <p>以我的为例，主题为yilia，放在目录themes/yilia下，使用的分支是develop；项目保存在分支source下。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd themes/yilia&#10;git commit -a -m &#34;commit in submodule&#34;&#10;git push origin develop&#10;cd ..&#10;cd ..&#10;git add .&#10;git commit -a -m &#34;commit in main project&#34;&#10;git push origin source</span><br></pre></td></tr></table></figure></p>
 <h3 id="本地更新"><strong>本地更新</strong></h3><p>通常使用 git status查看本地与远程仓库的差异，使用git pull将远程的更新同步到本地。<br>注意：submodule与主工程是相互独立的。因此当远程代码有更新，本地同步时，也要分别对主项目、submodule进行同步。<br>网上有个直接一次性同步的命令（<a href="http://stackoverflow.com/questions/1030169/easy-way-pull-latest-of-all-submodules）" target="_blank" rel="external">http://stackoverflow.com/questions/1030169/easy-way-pull-latest-of-all-submodules）</a></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull&#38;&#38;git submodule --recursive</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin source &#38;&#38; git submodule --recursive</span><br></pre></td></tr></table></figure>
 <h3 id="参考"><strong>参考</strong></h3><p><a href="http://www.clarkhan.com/2015/06/03/install-hexo/" target="_blank" rel="external">http://www.clarkhan.com/2015/06/03/install-hexo/</a><br><a href="https://git-scm.com/book/zh/v1/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97" target="_blank" rel="external">https://git-scm.com/book/zh/v1/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97</a><br><a href="http://stackoverflow.com/questions/5814319/git-submodule-push" target="_blank" rel="external">http://stackoverflow.com/questions/5814319/git-submodule-push</a><br><a href="http://stackoverflow.com/questions/1030169/easy-way-pull-latest-of-all-submodules" target="_blank" rel="external">http://stackoverflow.com/questions/1030169/easy-way-pull-latest-of-all-submodules</a></p>
 
       
@@ -295,378 +834,10 @@
 
 
   
-    <article id="post-145-Binary-Tree-Postorder-Traversal" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2016/03/16/145-Binary-Tree-Postorder-Traversal/" class="article-date">
-  	<time datetime="2016-03-16T13:35:21.000Z" itemprop="datePublished">2016-03-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/16/145-Binary-Tree-Postorder-Traversal/">145. Binary Tree Postorder Traversal</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Given a binary tree, return the postorder traversal of its nodes’ values.</p>
-<p>For example:<br>Given binary tree {1,#,2,3},<br>   1<br>    \<br>     2<br>    /<br>   3<br>return [3,2,1].</p>
-<p>解题思路：<br>方法一：递归方法。。。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">// recursive</span></span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">postorderTraversal</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">         vector&lt;<span class="keyword">int</span>&gt;res;</span><br><span class="line">         postorder(root,res);</span><br><span class="line">         <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(TreeNode* root,vector&lt;<span class="keyword">int</span>&gt;&amp;res)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root==NULL)<span class="keyword">return</span> ;</span><br><span class="line">        <span class="keyword">if</span>(root-&gt;left!=NULL)postorder(root-&gt;left,res);</span><br><span class="line">        <span class="keyword">if</span>(root-&gt;right!=NULL)postorder(root-&gt;right,res);</span><br><span class="line">        res.push_back(root-&gt;val);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>方法二：非递归方法<br>参考：<br><a href="http://zhidao.baidu.com/link?url=hi29Y_FNWekIU9L4YJV0hqzuzB6YXtQdH-7BJvfUUvzB731gxdH1_zMKfAZkBUo4JlhupBobBuq_usGqy-nrm_J9Fc79KE6i0WJ7tvb6sk3" target="_blank" rel="external">http://zhidao.baidu.com/link?url=hi29Y_FNWekIU9L4YJV0hqzuzB6YXtQdH-7BJvfUUvzB731gxdH1_zMKfAZkBUo4JlhupBobBuq_usGqy-nrm_J9Fc79KE6i0WJ7tvb6sk3</a><br>每次将节点的左结点放入栈中，对于最左节点，若存在右节点，则将其放入栈中，修改最左节点的右节点为空，同时将该右节点的左节点依次放入栈中。若找到一个最左节点，没有右节点，则该节点被访问。。。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// iterator</span></span><br><span class="line"><span class="comment">// reference:http://zhidao.baidu.com/link?url=hi29Y_FNWekIU9L4YJV0hqzuzB6YXtQdH-7BJvfUUvzB731gxdH1_zMKfAZkBUo4JlhupBobBuq_usGqy-nrm_J9Fc79KE6i0WJ7tvb6sk3</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">postorderTraversal</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">         vector&lt;<span class="keyword">int</span>&gt;res;</span><br><span class="line">         <span class="keyword">if</span>(root==NULL)<span class="keyword">return</span> res;</span><br><span class="line">         stack&lt;TreeNode*&gt;s;</span><br><span class="line">         TreeNode*p=root;</span><br><span class="line">         <span class="keyword">while</span>(p)&#123;</span><br><span class="line">            s.push(p);</span><br><span class="line">            p=p-&gt;left;</span><br><span class="line">			&#125;</span><br><span class="line">         <span class="keyword">while</span>(!s.empty())&#123;</span><br><span class="line">             p=s.top();</span><br><span class="line">             <span class="comment">//cout&lt;&lt;p-&gt;val&lt;&lt;endl;</span></span><br><span class="line">             <span class="keyword">if</span>(p-&gt;right)&#123;</span><br><span class="line">                 <span class="comment">//cout&lt;&lt;p-&gt;right-&gt;val&lt;&lt;endl;</span></span><br><span class="line">                 s.push(p-&gt;right);</span><br><span class="line">                 TreeNode*q=p-&gt;right;</span><br><span class="line">                 p-&gt;right=NULL;</span><br><span class="line">                 p=q;</span><br><span class="line">                 <span class="keyword">while</span>(p-&gt;left)&#123;</span><br><span class="line">					<span class="comment">//cout&lt;&lt;p-&gt;left-&gt;val&lt;&lt;"  fei"&lt;&lt;endl;</span></span><br><span class="line">					s.push(p-&gt;left);</span><br><span class="line">					p=p-&gt;left;</span><br><span class="line">				&#125;</span><br><span class="line">             &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                 s.pop();</span><br><span class="line">                 res.push_back(p-&gt;val);</span><br><span class="line">				&#125;</span><br><span class="line">             &#125;</span><br><span class="line">         <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>方法三：类似前序遍历，不过将访问顺序改为根结点，右节点，左节点的顺序，栈可以实现。该过程是后序遍历的逆序。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// another iterator</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">postorderTraversal</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">         vector&lt;<span class="keyword">int</span>&gt;res;</span><br><span class="line">         <span class="keyword">if</span>(root==NULL)<span class="keyword">return</span> res;</span><br><span class="line">         stack&lt;TreeNode*&gt;s;</span><br><span class="line">         s.push(root);</span><br><span class="line">         <span class="keyword">while</span>(!s.empty())&#123;</span><br><span class="line">             TreeNode*p=s.top();</span><br><span class="line">             s.pop();</span><br><span class="line">             res.push_back(p-&gt;val);</span><br><span class="line">             <span class="keyword">if</span>(p-&gt;left)s.push(p-&gt;left);</span><br><span class="line">             <span class="keyword">if</span>(p-&gt;right)s.push(p-&gt;right);</span><br><span class="line">         &#125;</span><br><span class="line">         std::reverse(res.begin(),res.end());</span><br><span class="line">         <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/">leetcode</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-46-Permutations" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/16/46-Permutations/" class="article-date">
-  	<time datetime="2016-03-16T11:49:40.000Z" itemprop="datePublished">2016-03-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/16/46-Permutations/">46. Permutations</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Given a collection of distinct numbers, return all possible permutations.</p>
-<p>For example,<br>[1,2,3] have the following permutations:<br>[1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], and [3,2,1].</p>
-<h2 id="结题报告">结题报告</h2><p>DFS。。。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">// 12 ms vector&lt;int&gt;tmp(n,0); save times </span></span><br><span class="line">	<span class="comment">// it costs 16ms if not knowing the size of tmp and using  push_back(),erase </span></span><br><span class="line">    vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; permute(vector&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="keyword">int</span> n=nums.size();</span><br><span class="line">        vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt;res;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span>)<span class="keyword">return</span> res;</span><br><span class="line">        <span class="keyword">int</span>*flag=<span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)flag[i]=<span class="number">0</span>;</span><br><span class="line">        vector&lt;<span class="keyword">int</span>&gt;tmp(n,<span class="number">0</span>);</span><br><span class="line">        dfs(res,nums,flag,tmp,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt;&amp;res,vector&lt;<span class="keyword">int</span>&gt;&amp;nums,<span class="keyword">int</span> *flag,vector&lt;<span class="keyword">int</span>&gt;&amp;tmp,<span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n=nums.size();</span><br><span class="line">        <span class="keyword">if</span>(j==n)&#123;</span><br><span class="line">            res.push_back(tmp);</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!flag[i])&#123;</span><br><span class="line">                tmp[j]=nums[i];</span><br><span class="line">                flag[i]=<span class="number">1</span>;</span><br><span class="line">                dfs(res,nums,flag,tmp,j+<span class="number">1</span>);</span><br><span class="line">                flag[i]=<span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/">leetcode</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-List之ArrayList源码分析" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/16/List之ArrayList源码分析/" class="article-date">
-  	<time datetime="2016-03-16T08:40:13.000Z" itemprop="datePublished">2016-03-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/16/List之ArrayList源码分析/">List之ArrayList源码分析</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>ArrayList内部使用一个Object[]数组来保存元素。<strong>源码版本为JDK1.7.0_75</strong>.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractList</span>&lt;<span class="title">E</span>&gt;</span><br><span class="line">        <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">RandomAccess</span>, <span class="title">Cloneable</span>,<span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br></pre></td></tr></table></figure></p>
-<p>从ArrayList<e>可以看出它是支持泛型的，它继承了AbstractList，该类提供了List接口的默认实现；List接口定义了list必须实现的方法；RandomAccess是一个标记接口，接口内没有定义任何内容；实现了Cloneable接口的类，可以调用Object.clone方法返回该对象的浅拷贝；实现java.io.Serializable接口可以启用序列化功能，这个也是一个标记接口，接口内也没有定义任何内容，仅用于标识可序列化的语义。</e></p>
-<p><strong>成员变量</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">8683452581122892189L</span>;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 默认初始长度</span><br><span class="line"> * Default initial capacity.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_CAPACITY = <span class="number">10</span>;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 共享的空数组，用于无参构造实例</span><br><span class="line"> * Shared empty array instance used for empty instances.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Object[] EMPTY_ELEMENTDATA = &#123;&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 存储arraylist元素的buffer。arraylist的容量为该数组的长度。当arraylist为空且</span><br><span class="line"> *   elementData==EMPTY_ELEMENTDATA时，添加第一个元素时，arraylist的长度会扩展到</span><br><span class="line"> *   DEFAULT_CAPACITY。</span><br><span class="line"> * The array buffer into which the elements of the ArrayList are stored.</span><br><span class="line"> * The capacity of the ArrayList is the length of this array buffer. Any</span><br><span class="line"> * empty ArrayList with elementData == EMPTY_ELEMENTDATA will be expanded to</span><br><span class="line"> * DEFAULT_CAPACITY when the first element is added.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">transient</span> Object[] elementData;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * arraylist的长度（包含的元素数目）</span><br><span class="line"> * The size of the ArrayList (the number of elements it contains).</span><br><span class="line"> *</span><br><span class="line"> * <span class="doctag">@serial</span></span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> size;</span><br></pre></td></tr></table></figure></p>
-<p>elementData数组存储ArrayList中的元素，size为数组长度。<br>其中，transient关键字用来表示一个域不是该对象串行化（序列化）的一部分。当一个对象被串行化（序列化）时，transient型变量不包括在串行化（序列化）表示中。通俗地讲，如果用transient修饰一个变量，当对象被存储时，该变量的值不需要维持，不需要为给变量分配内存。</p>
-<ol>
-<li>transient的作用及使用方法<br>   我们都知道一个对象只要实现了Serilizable接口，这个对象就可以被序列化，java的这种序列化模式为开发者提供了很多便利，我们可以不必关系具体序列化的过程，只要这个类实现了Serilizable接口，这个类的所有属性和方法都会自动序列化。<br>   然而在实际开发过程中，我们常常会遇到这样的问题，这个类的有些属性需要序列化，而其他属性不需要被序列化，打个比方，如果一个用户有一些敏感信息（如密码，银行卡号等），为了安全起见，不希望在网络操作（主要涉及到序列化操作，本地序列化缓存也适用）中被传输，这些信息对应的变量就可以加上transient关键字。换句话说，这个字段的生命周期仅存于调用者的内存中而不会写到磁盘里持久化。<br>   总之，java 的transient关键字为我们提供了便利，你只需要实现Serilizable接口，将不需要序列化的属性前添加关键字transient，序列化对象的时候，这个属性就不会序列化到指定的目的地中。</li>
-</ol>
-<p>来自 <a href="http://www.cnblogs.com/lanxuezaipiao/p/3369962.html" target="_blank" rel="external">http://www.cnblogs.com/lanxuezaipiao/p/3369962.html</a> </p>
-<p><strong>构造函数</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 构造给定数组大小的空数组</span><br><span class="line"> * Constructs an empty list with the specified initial capacity.</span><br><span class="line"> *</span><br><span class="line"> * <span class="doctag">@param</span>  initialCapacity  the initial capacity of the list</span><br><span class="line"> * <span class="doctag">@throws</span> IllegalArgumentException if the specified initial capacity</span><br><span class="line"> *         is negative</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ArrayList</span><span class="params">(<span class="keyword">int</span> initialCapacity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>();</span><br><span class="line">    <span class="keyword">if</span> (initialCapacity &lt; <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"Illegal Capacity: "</span>+</span><br><span class="line">                                           initialCapacity);</span><br><span class="line">    <span class="keyword">this</span>.elementData = <span class="keyword">new</span> Object[initialCapacity];</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 构造未指定数组大小的空数组，此时elementData=EMPTY_ELEMENTDATA</span><br><span class="line"> * Constructs an empty list with an initial capacity of ten.</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ArrayList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>();</span><br><span class="line">    <span class="keyword">this</span>.elementData = EMPTY_ELEMENTDATA;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 构造指定数组大小及元素的数组</span><br><span class="line"> * Constructs a list containing the elements of the specified</span><br><span class="line"> * collection, in the order they are returned by the collection's</span><br><span class="line"> * iterator.</span><br><span class="line"> *</span><br><span class="line"> * <span class="doctag">@param</span> c the collection whose elements are to be placed into this list</span><br><span class="line"> * <span class="doctag">@throws</span> NullPointerException if the specified collection is null</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ArrayList</span><span class="params">(Collection&lt;? extends E&gt; c)</span> </span>&#123;</span><br><span class="line">    elementData = c.toArray();</span><br><span class="line">    size = elementData.length;</span><br><span class="line">    <span class="comment">// c.toArray might (incorrectly) not return Object[] (see 6260652)</span></span><br><span class="line">    <span class="keyword">if</span> (elementData.getClass() != Object[].class)</span><br><span class="line">        elementData = Arrays.copyOf(elementData, size, Object[].class);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>方法：</strong><br>trimToSize中的modCount为父类AbstractList的成员，“The number of times this list has been <i>structurally modified</i>”记录list结构修改次数。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 将arraylist的容量修剪到数组的长度。应用该方法可以减少arraylist实例的内存。</span><br><span class="line"> * Trims the capacity of this &lt;tt&gt;ArrayList&lt;/tt&gt; instance to be the</span><br><span class="line"> * list's current size.  An application can use this operation to minimize</span><br><span class="line"> * the storage of an &lt;tt&gt;ArrayList&lt;/tt&gt; instance.</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">trimToSize</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    modCount++;</span><br><span class="line">    <span class="keyword">if</span> (size &lt; elementData.length) &#123;</span><br><span class="line">        elementData = Arrays.copyOf(elementData, size);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>扩充arraylist的容量，至少扩充到原来的1.5倍<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 扩充arraylist的容量</span><br><span class="line"> * Increases the capacity of this &lt;tt&gt;ArrayList&lt;/tt&gt; instance, if</span><br><span class="line"> * necessary, to ensure that it can hold at least the number of elements</span><br><span class="line"> * specified by the minimum capacity argument.</span><br><span class="line"> *</span><br><span class="line"> * <span class="doctag">@param</span>   minCapacity   the desired minimum capacity</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ensureCapacity</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> minExpand = (elementData != EMPTY_ELEMENTDATA)</span><br><span class="line">        <span class="comment">// any size if real element table</span></span><br><span class="line">        ? <span class="number">0</span></span><br><span class="line">        <span class="comment">// larger than default for empty table. It's already supposed to be</span></span><br><span class="line">        <span class="comment">// at default size.</span></span><br><span class="line">        : DEFAULT_CAPACITY;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">if</span> (minCapacity &gt; minExpand) &#123;</span><br><span class="line">        ensureExplicitCapacity(minCapacity);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ensureCapacityInternal</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (elementData == EMPTY_ELEMENTDATA) &#123;</span><br><span class="line">        minCapacity = Math.max(DEFAULT_CAPACITY, minCapacity);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    ensureExplicitCapacity(minCapacity);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ensureExplicitCapacity</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</span><br><span class="line">    modCount++;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// overflow-conscious code</span></span><br><span class="line">    <span class="keyword">if</span> (minCapacity - elementData.length &gt; <span class="number">0</span>)</span><br><span class="line">        grow(minCapacity);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 扩充容量，确保它至少扩充到原来的1.5倍。</span><br><span class="line"> * Increases the capacity to ensure that it can hold at least the</span><br><span class="line"> * number of elements specified by the minimum capacity argument.</span><br><span class="line"> *</span><br><span class="line"> * <span class="doctag">@param</span> minCapacity the desired minimum capacity</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">grow</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// overflow-conscious code</span></span><br><span class="line">    <span class="keyword">int</span> oldCapacity = elementData.length;</span><br><span class="line">    <span class="keyword">int</span> newCapacity = oldCapacity + (oldCapacity &gt;&gt; <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span> (newCapacity - minCapacity &lt; <span class="number">0</span>)</span><br><span class="line">        newCapacity = minCapacity;</span><br><span class="line">    <span class="keyword">if</span> (newCapacity - MAX_ARRAY_SIZE &gt; <span class="number">0</span>)</span><br><span class="line">        newCapacity = hugeCapacity(minCapacity);</span><br><span class="line">    <span class="comment">// minCapacity is usually close to size, so this is a win:</span></span><br><span class="line">    elementData = Arrays.copyOf(elementData, newCapacity);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">hugeCapacity</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (minCapacity &lt; <span class="number">0</span>) <span class="comment">// overflow</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> OutOfMemoryError();</span><br><span class="line">    <span class="keyword">return</span> (minCapacity &gt; MAX_ARRAY_SIZE) ?</span><br><span class="line">        Integer.MAX_VALUE :</span><br><span class="line">        MAX_ARRAY_SIZE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>方法size、isEmpty都是根据size判断，花费O(1)时间，indexOf方法中，首先判断要搜索的元素是否为空，若为空则遍历数组是否存在空值，有则返回对应的下表，否则返回-1；若元素不为空，同样是遍历数组，使用equal方法判断数组中是否有相等的元素。lastIndexOf方法与indexOf类似，只不过遍历方式是从后向前。contains方法通过判断indexOf方法查找该元素。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Returns the number of elements in this list.</span><br><span class="line"> *</span><br><span class="line"> * <span class="doctag">@return</span> the number of elements in this list</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> size;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Returns &lt;tt&gt;true&lt;/tt&gt; if this list contains no elements.</span><br><span class="line"> *</span><br><span class="line"> * <span class="doctag">@return</span> &lt;tt&gt;true&lt;/tt&gt; if this list contains no elements</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> size == <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Returns &lt;tt&gt;true&lt;/tt&gt; if this list contains the specified element.</span><br><span class="line"> * More formally, returns &lt;tt&gt;true&lt;/tt&gt; if and only if this list contains</span><br><span class="line"> * at least one element &lt;tt&gt;e&lt;/tt&gt; such that</span><br><span class="line"> * &lt;tt&gt;(o==null&amp;nbsp;?&amp;nbsp;e==null&amp;nbsp;:&amp;nbsp;o.equals(e))&lt;/tt&gt;.</span><br><span class="line"> *</span><br><span class="line"> * <span class="doctag">@param</span> o element whose presence in this list is to be tested</span><br><span class="line"> * <span class="doctag">@return</span> &lt;tt&gt;true&lt;/tt&gt; if this list contains the specified element</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> indexOf(o) &gt;= <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Returns the index of the first occurrence of the specified element</span><br><span class="line"> * in this list, or -1 if this list does not contain the element.</span><br><span class="line"> * More formally, returns the lowest index &lt;tt&gt;i&lt;/tt&gt; such that</span><br><span class="line"> * &lt;tt&gt;(o==null&amp;nbsp;?&amp;nbsp;get(i)==null&amp;nbsp;:&amp;nbsp;o.equals(get(i)))&lt;/tt&gt;,</span><br><span class="line"> * or -1 if there is no such index.</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">indexOf</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (o == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++)</span><br><span class="line">            <span class="keyword">if</span> (elementData[i]==<span class="keyword">null</span>)</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++)</span><br><span class="line">            <span class="keyword">if</span> (o.equals(elementData[i]))</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Returns the index of the last occurrence of the specified element</span><br><span class="line"> * in this list, or -1 if this list does not contain the element.</span><br><span class="line"> * More formally, returns the highest index &lt;tt&gt;i&lt;/tt&gt; such that</span><br><span class="line"> * &lt;tt&gt;(o==null&amp;nbsp;?&amp;nbsp;get(i)==null&amp;nbsp;:&amp;nbsp;o.equals(get(i)))&lt;/tt&gt;,</span><br><span class="line"> * or -1 if there is no such index.</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lastIndexOf</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (o == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = size-<span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">            <span class="keyword">if</span> (elementData[i]==<span class="keyword">null</span>)</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = size-<span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">            <span class="keyword">if</span> (o.equals(elementData[i]))</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>clone方法首先调用父类的clone方法返回一个对象的副本，将所返回的对象的elementData数组赋值为原对象elementData的内容，将副本的modCount设置为0.<br>该方法返回ArrayList实例的浅副本，即不复制这些元素本身。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Returns a shallow copy of this &lt;tt&gt;ArrayList&lt;/tt&gt; instance.  (The</span><br><span class="line"> * elements themselves are not copied.)</span><br><span class="line"> *</span><br><span class="line"> * <span class="doctag">@return</span> a clone of this &lt;tt&gt;ArrayList&lt;/tt&gt; instance</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">clone</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="annotation">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</span><br><span class="line">            ArrayList&lt;E&gt; v = (ArrayList&lt;E&gt;) <span class="keyword">super</span>.clone();</span><br><span class="line">        v.elementData = Arrays.copyOf(elementData, size);</span><br><span class="line">        v.modCount = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> v;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (CloneNotSupportedException e) &#123;</span><br><span class="line">        <span class="comment">// this shouldn't happen, since we are Cloneable</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> InternalError();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>toArray方法返回elementData数组的副本，而不是返回elementData本身。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Returns an array containing all of the elements in this list</span><br><span class="line"> * in proper sequence (from first to last element).</span><br><span class="line"> *</span><br><span class="line"> * &lt;p&gt;The returned array will be "safe" in that no references to it are</span><br><span class="line"> * maintained by this list.  (In other words, this method must allocate</span><br><span class="line"> * a new array).  The caller is thus free to modify the returned array.</span><br><span class="line"> *</span><br><span class="line"> * &lt;p&gt;This method acts as bridge between array-based and collection-based</span><br><span class="line"> * APIs.</span><br><span class="line"> *</span><br><span class="line"> * <span class="doctag">@return</span> an array containing all of the elements in this list in</span><br><span class="line"> *         proper sequence</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> Object[] toArray() &#123;</span><br><span class="line">    <span class="keyword">return</span> Arrays.copyOf(elementData, size);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="annotation">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</span><br><span class="line"><span class="keyword">public</span> &lt;T&gt; T[] toArray(T[] a) &#123;</span><br><span class="line">    <span class="keyword">if</span> (a.length &lt; size)</span><br><span class="line">        <span class="comment">// Make a new array of a's runtime type, but my contents:</span></span><br><span class="line">        <span class="keyword">return</span> (T[]) Arrays.copyOf(elementData, size, a.getClass());</span><br><span class="line">    System.arraycopy(elementData, <span class="number">0</span>, a, <span class="number">0</span>, size);</span><br><span class="line">    <span class="keyword">if</span> (a.length &gt; size)</span><br><span class="line">        a[size] = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>add和remove特定下标的元素，add的话，注意要先扩充数组容量，若，remove的话最后记得将要删除的位置设置为null，让GC回收垃圾，两个方法都是通过方法system.arraycopy移动数组位置。<br>添加和删除元素方法不是同步的，因此如果多个线程同时访问一个ArrayList实例，而其中至少一个线程从结构上修改了数组，那么该数组必须保持外部同步，在网上查到，可以通过Collections.synchronizedList方法将该数组包装起来。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Inserts the specified element at the specified position in this</span><br><span class="line"> * list. Shifts the element currently at that position (if any) and</span><br><span class="line"> * any subsequent elements to the right (adds one to their indices).</span><br><span class="line"> *</span><br><span class="line"> * <span class="doctag">@param</span> index index at which the specified element is to be inserted</span><br><span class="line"> * <span class="doctag">@param</span> element element to be inserted</span><br><span class="line"> * <span class="doctag">@throws</span> IndexOutOfBoundsException &#123;<span class="doctag">@inheritDoc</span>&#125;</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index, E element)</span> </span>&#123;</span><br><span class="line">    rangeCheckForAdd(index);</span><br><span class="line"> </span><br><span class="line">    ensureCapacityInternal(size + <span class="number">1</span>);  <span class="comment">// Increments modCount!!</span></span><br><span class="line">    System.arraycopy(elementData, index, elementData, index + <span class="number">1</span>,</span><br><span class="line">                     size - index);</span><br><span class="line">    elementData[index] = element;</span><br><span class="line">    size++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Removes the element at the specified position in this list.</span><br><span class="line"> * Shifts any subsequent elements to the left (subtracts one from their</span><br><span class="line"> * indices).</span><br><span class="line"> *</span><br><span class="line"> * <span class="doctag">@param</span> index the index of the element to be removed</span><br><span class="line"> * <span class="doctag">@return</span> the element that was removed from the list</span><br><span class="line"> * <span class="doctag">@throws</span> IndexOutOfBoundsException &#123;<span class="doctag">@inheritDoc</span>&#125;</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    rangeCheck(index);</span><br><span class="line"> </span><br><span class="line">    modCount++;</span><br><span class="line">    E oldValue = elementData(index);</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">int</span> numMoved = size - index - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (numMoved &gt; <span class="number">0</span>)</span><br><span class="line">        System.arraycopy(elementData, index+<span class="number">1</span>, elementData, index,</span><br><span class="line">                         numMoved);</span><br><span class="line">    elementData[--size] = <span class="keyword">null</span>; <span class="comment">// clear to let GC do its work</span></span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> oldValue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>clear方法并没有修改elementData的长度，只是将其内容设置null，让GC回收空间，并设size为0.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Removes all of the elements from this list.  The list will</span><br><span class="line"> * be empty after this call returns.</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    modCount++;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// clear to let GC do its work</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++)</span><br><span class="line">        elementData[i] = <span class="keyword">null</span>;</span><br><span class="line"> </span><br><span class="line">    size = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>removeAll和retainAll方法，removeAll是删除数组中包含指定集合的元素，retainAll是只保留在指定集合中的元素，数组的其他元素将删除。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Removes from this list all of its elements that are contained in the</span><br><span class="line"> * specified collection.</span><br><span class="line"> *</span><br><span class="line"> * <span class="doctag">@param</span> c collection containing elements to be removed from this list</span><br><span class="line"> * <span class="doctag">@return</span> &#123;<span class="doctag">@code</span> true&#125; if this list changed as a result of the call</span><br><span class="line"> * <span class="doctag">@throws</span> ClassCastException if the class of an element of this list</span><br><span class="line"> *         is incompatible with the specified collection</span><br><span class="line"> * (&lt;a href="Collection.html#optional-restrictions"&gt;optional&lt;/a&gt;)</span><br><span class="line"> * <span class="doctag">@throws</span> NullPointerException if this list contains a null element and the</span><br><span class="line"> *         specified collection does not permit null elements</span><br><span class="line"> * (&lt;a href="Collection.html#optional-restrictions"&gt;optional&lt;/a&gt;),</span><br><span class="line"> *         or if the specified collection is null</span><br><span class="line"> * <span class="doctag">@see</span> Collection#contains(Object)</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">removeAll</span><span class="params">(Collection&lt;?&gt; c)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> batchRemove(c, <span class="keyword">false</span>);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Retains only the elements in this list that are contained in the</span><br><span class="line"> * specified collection.  In other words, removes from this list all</span><br><span class="line"> * of its elements that are not contained in the specified collection.</span><br><span class="line"> *</span><br><span class="line"> * <span class="doctag">@param</span> c collection containing elements to be retained in this list</span><br><span class="line"> * <span class="doctag">@return</span> &#123;<span class="doctag">@code</span> true&#125; if this list changed as a result of the call</span><br><span class="line"> * <span class="doctag">@throws</span> ClassCastException if the class of an element of this list</span><br><span class="line"> *         is incompatible with the specified collection</span><br><span class="line"> * (&lt;a href="Collection.html#optional-restrictions"&gt;optional&lt;/a&gt;)</span><br><span class="line"> * <span class="doctag">@throws</span> NullPointerException if this list contains a null element and the</span><br><span class="line"> *         specified collection does not permit null elements</span><br><span class="line"> * (&lt;a href="Collection.html#optional-restrictions"&gt;optional&lt;/a&gt;),</span><br><span class="line"> *         or if the specified collection is null</span><br><span class="line"> * <span class="doctag">@see</span> Collection#contains(Object)</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">retainAll</span><span class="params">(Collection&lt;?&gt; c)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> batchRemove(c, <span class="keyword">true</span>);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">batchRemove</span><span class="params">(Collection&lt;?&gt; c, <span class="keyword">boolean</span> complement)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> Object[] elementData = <span class="keyword">this</span>.elementData;</span><br><span class="line">    <span class="keyword">int</span> r = <span class="number">0</span>, w = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">boolean</span> modified = <span class="keyword">false</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (; r &lt; size; r++)</span><br><span class="line">            <span class="keyword">if</span> (c.contains(elementData[r]) == complement)</span><br><span class="line">                elementData[w++] = elementData[r];</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="comment">// Preserve behavioral compatibility with AbstractCollection,</span></span><br><span class="line">        <span class="comment">// even if c.contains() throws.</span></span><br><span class="line">        <span class="keyword">if</span> (r != size) &#123;</span><br><span class="line">            System.arraycopy(elementData, r,</span><br><span class="line">                             elementData, w,</span><br><span class="line">                             size - r);</span><br><span class="line">            w += size - r;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (w != size) &#123;</span><br><span class="line">            <span class="comment">// clear to let GC do its work</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = w; i &lt; size; i++)</span><br><span class="line">                elementData[i] = <span class="keyword">null</span>;</span><br><span class="line">            modCount += size - w;</span><br><span class="line">            size = w;</span><br><span class="line">            modified = <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> modified;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>size、isEmpty、get、set、iterator和listIterator操作需要O（1）时间，add、remove等操作大都以线性时间运行。<br>参考：<br><a href="http://my.oschina.net/u/268957/blog/499587" target="_blank" rel="external">http://my.oschina.net/u/268957/blog/499587</a><br><a href="http://www.codeweblog.com/%E6%B7%B1%E5%85%A5jdk%E6%BA%90%E7%A0%81%E4%B9%8Barraylist%E7%B1%BB/" target="_blank" rel="external">http://www.codeweblog.com/%E6%B7%B1%E5%85%A5jdk%E6%BA%90%E7%A0%81%E4%B9%8Barraylist%E7%B1%BB/</a><br><a href="http://blog.csdn.net/jzhf2012/article/details/8540410" target="_blank" rel="external">http://blog.csdn.net/jzhf2012/article/details/8540410</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-api/">java api</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-153-Find-Minimum-in-Rotated-Sorted-Array" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/16/153-Find-Minimum-in-Rotated-Sorted-Array/" class="article-date">
-  	<time datetime="2016-03-16T08:31:47.000Z" itemprop="datePublished">2016-03-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/16/153-Find-Minimum-in-Rotated-Sorted-Array/">153. Find Minimum in Rotated Sorted Array</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Suppose a sorted array is rotated at some pivot unknown to you beforehand.</p>
-<p>(i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).</p>
-<p>Find the minimum element.</p>
-<p>You may assume no duplicate exists in the array.</p>
-<p>结题思路：<br>方法一：遍历数组，判断是否存在nums[i-1]&gt;nums[i]的情况，若有则返回nums[i]，否则返回nums[0]。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 6ms</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findMin</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n=nums.size();</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">1</span>)<span class="keyword">return</span> nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i-<span class="number">1</span>]&gt;nums[i])<span class="keyword">return</span> nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>方法二：类二分法<br>将数组的中值与最右元素比较，若中间值大于最右元素，则说明右部分的数组存在递增递减的情况，即最小值在该区域内；若中间值小于最右元素，则最小区域在左部分。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 4ms</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findMin</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n=nums.size();</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">1</span>)<span class="keyword">return</span> nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> l=<span class="number">0</span>,r=n-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid=(l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid]&gt;nums[r])l=mid+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            r=mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums[l];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/">leetcode</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-98-Gary-Code" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/16/98-Gary-Code/" class="article-date">
-  	<time datetime="2016-03-16T08:28:47.000Z" itemprop="datePublished">2016-03-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/16/98-Gary-Code/">89. Gray Code</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>The gray code is a binary numeral system where two successive values differ in only one bit.</p>
-<p>Given a non-negative integer n representing the total number of bits in the code, print the sequence of gray code. A gray code sequence must begin with 0.</p>
-<p>For example, given n = 2, return [0,1,3,2]. Its gray code sequence is:</p>
-<p>00 - 0<br>01 - 1<br>11 - 3<br>10 - 2<br>Note:<br>For a given n, a gray code sequence is not uniquely defined.</p>
-<p>For example, [0,2,3,1] is also a valid gray code sequence according to the above definition.</p>
-<p>For now, the judge is able to judge based on one instance of gray code sequence. Sorry about that.</p>
-<p>解题思路：<br>当n=3时，假设前4个元素使用n=2的gray code，即[000,001,011,010]，那么剩下的数字都是1xx，只要将前4个元素逆序，再加上4即可，即[110,111,101,100]。。。构造方法就是这样的过程。。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">grayCode</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="keyword">int</span>&gt;res;</span><br><span class="line">        res.push_back(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span>)<span class="keyword">return</span> res;</span><br><span class="line">        res.push_back(<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">1</span>)<span class="keyword">return</span> res;</span><br><span class="line">        <span class="keyword">int</span> tmp=<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">int</span> num=(<span class="number">1</span>&lt;&lt;n);</span><br><span class="line">        <span class="keyword">while</span>(tmp!=num)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=tmp-<span class="number">1</span>;i&gt;=<span class="number">0</span>;i--)res.push_back(res[i]+tmp);</span><br><span class="line">            tmp&lt;&lt;=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/">leetcode</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-62. Unique Paths" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/16/62. Unique Paths/" class="article-date">
-  	<time datetime="2016-03-16T08:00:18.000Z" itemprop="datePublished">2016-03-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/16/62. Unique Paths/">62. Unique Paths</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>A robot is located at the top-left corner of a m x n grid (marked ‘Start’ in the diagram below).</p>
-<p>The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked ‘Finish’ in the diagram below).</p>
-<p>How many possible unique paths are there?</p>
-<p>Above is a 3 x 7 grid. How many possible unique paths are there?</p>
-<p>Note: m and n will be at most 100.     </p>
-<h3 id="解题思路：">解题思路：</h3><p>水题。。。。求c(n+m-2,min(n,m)-1)。注意乘法可能导致int溢出，将其先转换为long即可</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">uniquePaths</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">1</span>||m==<span class="number">1</span>)<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> tmp=m&gt;n?n-<span class="number">1</span>:m-<span class="number">1</span>;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i=m+n-<span class="number">2</span>,j=<span class="number">1</span>;j&lt;=tmp;i--,j++)</span><br><span class="line">       res=(<span class="keyword">int</span>)((<span class="keyword">long</span>)res*(<span class="keyword">long</span>)i/j);</span><br><span class="line">       <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/">leetcode</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
       <footer id="footer">
