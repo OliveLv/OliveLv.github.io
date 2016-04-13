@@ -103,7 +103,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/hihocoder/" style="font-size: 17.5px;">hihocoder</a> <a href="/tags/java-api/" style="font-size: 15px;">java api</a> <a href="/tags/leetcode/" style="font-size: 20px;">leetcode</a> <a href="/tags/主题/" style="font-size: 10px;">主题</a> <a href="/tags/笔试题/" style="font-size: 10px;">笔试题</a>
+						<a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/hihocoder/" style="font-size: 17.5px;">hihocoder</a> <a href="/tags/java-api/" style="font-size: 15px;">java api</a> <a href="/tags/leetcode/" style="font-size: 20px;">leetcode</a> <a href="/tags/主题/" style="font-size: 10px;">主题</a> <a href="/tags/笔试题/" style="font-size: 12.5px;">笔试题</a>
 					</div>
 				</section>
 				
@@ -162,6 +162,74 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-华为2016实习生上机题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/13/华为2016实习生上机题/" class="article-date">
+  	<time datetime="2016-04-13T13:41:27.000Z" itemprop="datePublished">2016-04-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/13/华为2016实习生上机题/">华为2016实习生上机题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、<br><img src="img/huawei-1.png" alt=""><br>简单题，直接遍历一般即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</span><br><span class="line">		Scanner cin=<span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		String s;</span><br><span class="line">		<span class="keyword">while</span>(cin.hasNext())&#123;</span><br><span class="line">			s=cin.nextLine();</span><br><span class="line">			<span class="keyword">int</span> n=s.length();</span><br><span class="line">			<span class="keyword">char</span> pre=s.charAt(<span class="number">0</span>);</span><br><span class="line">			<span class="keyword">int</span> ans=<span class="number">1</span>;</span><br><span class="line">			String res=<span class="string">""</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">				<span class="keyword">char</span> cur=s.charAt(i);</span><br><span class="line">				<span class="keyword">if</span>(!((cur&gt;=<span class="string">'A'</span>&amp;&amp;cur&lt;=<span class="string">'Z'</span>)||(cur&gt;=<span class="string">'a'</span>&amp;&amp;cur&lt;=<span class="string">'z'</span>)))<span class="keyword">continue</span>;</span><br><span class="line">				<span class="comment">//System.out.println();</span></span><br><span class="line">				<span class="keyword">if</span>(pre!=cur)&#123;</span><br><span class="line">					</span><br><span class="line">						res+=pre;</span><br><span class="line">						res+=ans;</span><br><span class="line">						</span><br><span class="line">					</span><br><span class="line">					pre=cur;</span><br><span class="line">					ans=<span class="number">1</span>;</span><br><span class="line">				&#125;<span class="keyword">else</span></span><br><span class="line">					ans++;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">			res+=pre;</span><br><span class="line">			res+=ans;</span><br><span class="line">			System.out.println(res);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2、<br><img src="img/huawei-2.jpg" alt=""><br>栈的思想</p>
+<ul>
+<li>如果遇到”(“，则入栈；</li>
+<li>遇到”)”，则出栈；说明该盒子里没有礼物，则不打开。</li>
+<li>遇到”A”，则跳出循环。<br>解即为栈的size。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">import</span> java.util.Stack;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</span><br><span class="line">		Scanner cin=<span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		String s;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">while</span>(cin.hasNext())&#123;</span><br><span class="line">			s=cin.nextLine();</span><br><span class="line">			<span class="keyword">int</span> n=s.length();</span><br><span class="line">			<span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">			Stack&lt;String&gt;stk=<span class="keyword">new</span> Stack&lt;String&gt;();</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">				<span class="keyword">char</span> tmp=s.charAt(i);</span><br><span class="line">				<span class="keyword">if</span>(tmp==<span class="string">')'</span>)stk.pop();</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">					<span class="keyword">if</span>(tmp==<span class="string">'('</span>)stk.push(<span class="string">"("</span>);</span><br><span class="line">					<span class="keyword">else</span></span><br><span class="line">						<span class="keyword">if</span>(tmp==<span class="string">'A'</span>)<span class="keyword">break</span>;</span><br><span class="line">				<span class="keyword">if</span>(s.charAt(i)==<span class="string">'('</span>&amp;&amp;s.charAt(i+<span class="number">1</span>)!=<span class="string">')'</span>)cnt++;</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">					<span class="keyword">if</span>(s.charAt(i)==<span class="string">'A'</span>)<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(stk.size());</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3、<img src="img/huawei-3.png" alt=""><br>贪心思想，这题因为提交次数过多，最后只拿到189，下面是最终修改的方法，应该正确了。</p>
+<ul>
+<li>若mp&gt;=10，则玩家使用魔法，直到玩家被消灭或者mp&lt;10时，停止使用魔法；</li>
+<li>否则，有两种情况，玩家要么一直使用普通攻击，要么选择恢复魔法；分别计算两种情况，直到玩家被消灭或者魔法恢复或者BOSS被消灭。<br>需要注意的时，玩家先玩。。。。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> min=Integer.MAX_VALUE;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> hp1,<span class="keyword">int</span> mp,<span class="keyword">int</span> hp2,<span class="keyword">int</span> cnt)</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(hp1&lt;=<span class="number">0</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(hp2&lt;=<span class="number">0</span>)&#123;</span><br><span class="line">				<span class="keyword">if</span>(min&gt;(cnt-<span class="number">1</span>))min=cnt-<span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> ;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(hp2&lt;=<span class="number">0</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(min&gt;(cnt-<span class="number">1</span>))min=cnt-<span class="number">1</span>;</span><br><span class="line">			<span class="keyword">return</span> ;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span>(mp&gt;=<span class="number">10</span>)&#123;</span><br><span class="line">			<span class="keyword">int</span> ans=mp/<span class="number">10</span>;</span><br><span class="line">			<span class="keyword">int</span> ans1=hp2%<span class="number">60</span>!=<span class="number">0</span>?hp2/<span class="number">60</span>+<span class="number">1</span>:hp2/<span class="number">60</span>;</span><br><span class="line">			<span class="keyword">if</span>(ans1&lt;ans)ans=ans1;</span><br><span class="line">			<span class="keyword">int</span> tmp=hp2;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;ans;i++)&#123;</span><br><span class="line">				<span class="keyword">if</span>(cnt%<span class="number">5</span>==<span class="number">0</span>)hp1-=<span class="number">30</span>;</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">					hp1-=<span class="number">10</span>;</span><br><span class="line">				cnt++;</span><br><span class="line">				<span class="keyword">if</span>(hp1&lt;=<span class="number">0</span>)<span class="keyword">break</span>;</span><br><span class="line">				tmp-=<span class="number">60</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			dfs(hp1,mp-<span class="number">10</span>*ans,tmp,cnt);</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">int</span> hp=hp1;</span><br><span class="line">			<span class="keyword">int</span> ans=hp2/<span class="number">17</span>;</span><br><span class="line">			<span class="keyword">if</span>(hp2%<span class="number">17</span>!=<span class="number">0</span>)ans++;</span><br><span class="line">			<span class="keyword">int</span> tmp=hp2;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;ans;i++)&#123;</span><br><span class="line">				<span class="keyword">if</span>(cnt%<span class="number">5</span>==<span class="number">0</span>)hp1-=<span class="number">30</span>;</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">					hp1-=<span class="number">10</span>;</span><br><span class="line">				cnt++;</span><br><span class="line">				<span class="keyword">if</span>(hp1&lt;=<span class="number">0</span>)<span class="keyword">break</span>;</span><br><span class="line">				tmp-=<span class="number">17</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			dfs(hp1,mp,tmp,cnt);</span><br><span class="line">			hp1=hp;</span><br><span class="line">			ans=(<span class="number">10</span>-mp)/<span class="number">4</span>;</span><br><span class="line">			<span class="keyword">if</span>((<span class="number">10</span>-mp)%<span class="number">4</span>!=<span class="number">0</span>)ans++;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;ans;i++)&#123;</span><br><span class="line">				<span class="keyword">if</span>(cnt%<span class="number">5</span>==<span class="number">0</span>)hp1-=<span class="number">30</span>;</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">					hp1-=<span class="number">10</span>;</span><br><span class="line">				cnt++;</span><br><span class="line">				<span class="keyword">if</span>(hp1&lt;=<span class="number">0</span>)<span class="keyword">break</span>;</span><br><span class="line">				mp+=<span class="number">4</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			dfs(hp1,mp,hp2,cnt);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</span><br><span class="line">		Scanner cin=<span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		<span class="keyword">int</span> hp1,mp,hp2;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">while</span>(cin.hasNext())&#123;</span><br><span class="line">			hp1=cin.nextInt();</span><br><span class="line">			mp=cin.nextInt();</span><br><span class="line">			hp2=cin.nextInt();</span><br><span class="line">			min=Integer.MAX_VALUE;</span><br><span class="line">			dfs(hp1,mp,hp2,<span class="number">1</span>);</span><br><span class="line">			<span class="keyword">if</span>(min==Integer.MAX_VALUE)System.out.println(-<span class="number">1</span>);</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				System.out.println(min);</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔试题/">笔试题</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-京东2016实习生在线编程题" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -752,69 +820,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/19/hello-world/" class="article-date">
-  	<time datetime="2016-03-19T07:18:14.029Z" itemprop="datePublished">2016-03-19</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/19/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/主题/">主题</a></li></ul>
 	</div>
 
       
