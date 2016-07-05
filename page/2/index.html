@@ -103,7 +103,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/hihocoder/" style="font-size: 17.5px;">hihocoder</a> <a href="/tags/java-api/" style="font-size: 15px;">java api</a> <a href="/tags/leetcode/" style="font-size: 20px;">leetcode</a> <a href="/tags/主题/" style="font-size: 10px;">主题</a> <a href="/tags/笔试题/" style="font-size: 12.5px;">笔试题</a>
+						<a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/hihocoder/" style="font-size: 17.5px;">hihocoder</a> <a href="/tags/java-api/" style="font-size: 15px;">java api</a> <a href="/tags/leetcode/" style="font-size: 20px;">leetcode</a> <a href="/tags/主题/" style="font-size: 10px;">主题</a> <a href="/tags/笔试题/" style="font-size: 15px;">笔试题</a>
 					</div>
 				</section>
 				
@@ -162,6 +162,75 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-git-hexo之同步发布博客" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/19/git-hexo之同步发布博客/" class="article-date">
+  	<time datetime="2016-03-19T07:47:56.000Z" itemprop="datePublished">2016-03-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/19/git-hexo之同步发布博客/">git+hexo之同步发布博客</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用hexo搭建的github博客在电脑A上，其他电脑可以同步发布博客。<br>方法：文件夹下的public和.deploy_git文件夹只需要用hexo g命令即可生成，故不需要放到github上，只要将node_modules、scaffolds、source、themes、.gitignore、.gitmodules、_config.yml、db.json、package.json同步到github仓库中即可。</p>
+<h3 id="提交到github"><strong>提交到github</strong></h3><ul>
+<li>若使用了其他人发布的主题，若直接提交，在github上该文件夹会变成灰色，而且在其他电脑上clone时，该文件夹下内容为空。<br>解决方法：(<a href="https://git-scm.com/book/zh/v1/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97" target="_blank" rel="external">https://git-scm.com/book/zh/v1/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97</a>)<br>将别人的主题fork过来，然后在工程下添加子模块（假设添加了yilia主题），自动生成.gitmodules文件，然后将代码提交到远程仓库。</li>
+</ul>
+<p>以我的为例，添加子模块yilia主题，放在路径themes/yilia下，提交到OliveLv.github.io的source分支<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule add &#60;&#35201;&#28155;&#21152;&#30340;&#23376;&#27169;&#22359;git&#22320;&#22336;&#62; &#60;&#28155;&#21152;&#21040;&#24037;&#31243;&#25351;&#23450;&#30340;&#36335;&#24452;&#19979;&#62;&#10;git submodule add  https://github.com/OliveLv/hexo-theme-yilia  themes/yilia&#10;git add .&#10;git commit -a -m &#34;commit source&#34;&#10;git push origin source</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>还有使用了别人的主题，没有按照上面的方法做，在下载到其他地方时，会提示找不到该主题的submodule git而出错。。</li>
+</ul>
+<h3 id="其他电脑克隆"><strong>其他电脑克隆</strong></h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone -b source --recursive https://github.com/OliveLv/OliveLv.github.io&#10;&#25110;&#32773;&#10;git clone -b source https://github.com/OliveLv/OliveLv.github.io&#10;git submodule init&#10;git submodule update --remote</span><br></pre></td></tr></table></figure>
+<h3 id="提交修改"><strong>提交修改</strong></h3><p>通常方法就是<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .&#10;git commit -a -m &#34;comment&#34;&#10;git push origin source</span><br></pre></td></tr></table></figure></p>
+<p>对submodule进行了修改，提交方法（<a href="http://stackoverflow.com/questions/5814319/git-submodule-push）" target="_blank" rel="external">http://stackoverflow.com/questions/5814319/git-submodule-push）</a><br>首先进入submodule的文件夹，将修改的文件提交<br>然后返回工程目录，提交修改。。。即可</p>
+<p>以我的为例，主题为yilia，放在目录themes/yilia下，使用的分支是develop；项目保存在分支source下。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd themes/yilia&#10;git commit -a -m &#34;commit in submodule&#34;&#10;git push origin develop&#10;cd ..&#10;cd ..&#10;git add .&#10;git commit -a -m &#34;commit in main project&#34;&#10;git push origin source</span><br></pre></td></tr></table></figure></p>
+<h3 id="本地更新"><strong>本地更新</strong></h3><p>通常使用 git status查看本地与远程仓库的差异，使用git pull将远程的更新同步到本地。<br>注意：submodule与主工程是相互独立的。因此当远程代码有更新，本地同步时，也要分别对主项目、submodule进行同步。<br>网上有个直接一次性同步的命令（<a href="http://stackoverflow.com/questions/1030169/easy-way-pull-latest-of-all-submodules）" target="_blank" rel="external">http://stackoverflow.com/questions/1030169/easy-way-pull-latest-of-all-submodules）</a></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin source &#38;&#38; git submodule --recursive</span><br></pre></td></tr></table></figure>
+<h3 id="参考"><strong>参考</strong></h3><p><a href="http://www.clarkhan.com/2015/06/03/install-hexo/" target="_blank" rel="external">http://www.clarkhan.com/2015/06/03/install-hexo/</a><br><a href="https://git-scm.com/book/zh/v1/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97" target="_blank" rel="external">https://git-scm.com/book/zh/v1/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97</a><br><a href="http://stackoverflow.com/questions/5814319/git-submodule-push" target="_blank" rel="external">http://stackoverflow.com/questions/5814319/git-submodule-push</a><br><a href="http://stackoverflow.com/questions/1030169/easy-way-pull-latest-of-all-submodules" target="_blank" rel="external">http://stackoverflow.com/questions/1030169/easy-way-pull-latest-of-all-submodules</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   

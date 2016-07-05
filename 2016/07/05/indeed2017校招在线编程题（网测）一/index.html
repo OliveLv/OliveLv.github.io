@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>indeed2017校招在线编程题（网测）一 | olive</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="A - 改行/Line Break解题思路水题1234567891011121314import java.util.Scanner; public class Main&amp;#123;	public static void main(String []args)&amp;#123;		Scanner cin=new Scanner(System.in);		while(cin.hasNext())&amp;#123">
+<meta property="og:type" content="article">
+<meta property="og:title" content="indeed2017校招在线编程题（网测）一">
+<meta property="og:url" content="http://olivelv.github.io/2016/07/05/indeed2017校招在线编程题（网测）一/index.html">
+<meta property="og:site_name" content="olive">
+<meta property="og:description" content="A - 改行/Line Break解题思路水题1234567891011121314import java.util.Scanner; public class Main&amp;#123;	public static void main(String []args)&amp;#123;		Scanner cin=new Scanner(System.in);		while(cin.hasNext())&amp;#123">
+<meta property="og:image" content="http://olivelv.github.io/img/indeed-1.PNG">
+<meta property="og:image" content="http://olivelv.github.io/img/indeed-2.PNG">
+<meta property="og:image" content="http://olivelv.github.io/img/indeed-3.PNG">
+<meta property="og:image" content="http://olivelv.github.io/img/indeed-4.PNG">
+<meta property="og:updated_time" content="2016-07-05T15:56:33.686Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="indeed2017校招在线编程题（网测）一">
+<meta name="twitter:description" content="A - 改行/Line Break解题思路水题1234567891011121314import java.util.Scanner; public class Main&amp;#123;	public static void main(String []args)&amp;#123;		Scanner cin=new Scanner(System.in);		while(cin.hasNext())&amp;#123">
+  
+    <link rel="alternative" href="/atom.xml" title="olive" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/head.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">OliveLv</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Nothing is possible if not try.</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/OliveLv" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="/adalxh@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/hihocoder/" style="font-size: 17.5px;">hihocoder</a> <a href="/tags/java-api/" style="font-size: 15px;">java api</a> <a href="/tags/leetcode/" style="font-size: 20px;">leetcode</a> <a href="/tags/主题/" style="font-size: 10px;">主题</a> <a href="/tags/笔试题/" style="font-size: 15px;">笔试题</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">在读研究生</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">OliveLv</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/img/head.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">OliveLv</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Nothing is possible if not try.</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/OliveLv" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="/adalxh@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-indeed2017校招在线编程题（网测）一" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/05/indeed2017校招在线编程题（网测）一/" class="article-date">
+  	<time datetime="2016-07-05T13:16:18.000Z" itemprop="datePublished">2016-07-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      indeed2017校招在线编程题（网测）一
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔试题/">笔试题</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="A_-_改行/Line_Break"><strong>A - 改行/Line Break</strong></h3><p><img src="/img/indeed-1.PNG" alt=""><br><strong>解题思路</strong><br>水题<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</span><br><span class="line">		Scanner cin=<span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		<span class="keyword">while</span>(cin.hasNext())&#123;</span><br><span class="line">			String s=cin.nextLine();</span><br><span class="line">			String[]str=s.split(<span class="string">","</span>);</span><br><span class="line">			<span class="keyword">for</span>(String e:str)&#123;</span><br><span class="line">				System.out.println(e);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="B_-_順列/Permutations"><strong>B - 順列/Permutations</strong></h3><p><img src="/img/indeed-2.PNG" alt=""><br><strong>解题思路</strong><br>水题，问你有几个cycles。<br>如(2,4,5,1,3)，每个节点分别指向(1,2,3,4,5)，即2-1,4-2,5-3,1-4,3-5。遍历一下，就可以得到两个cycles(2-1-4-2),(5-3-5)。<br>下面代码中，p为当前节点，flag为每个节点所在的环。类dfs，从某个节点出发，标记经过的节点为同一个环，直到经过的节点已被标记过，则遍历下一个节点，并标记下一个环。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</span><br><span class="line">		Scanner cin=<span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		<span class="keyword">while</span>(cin.hasNext())&#123;</span><br><span class="line">			<span class="keyword">int</span> n=cin.nextInt();</span><br><span class="line">			<span class="keyword">int</span>[]p=<span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>];</span><br><span class="line">			<span class="keyword">int</span> []flag=<span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>];</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">				p[i]=cin.nextInt();</span><br><span class="line">			<span class="keyword">int</span> res=<span class="number">1</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">				<span class="keyword">if</span>(flag[i]==<span class="number">0</span>)&#123;</span><br><span class="line">					<span class="keyword">int</span> j=i;</span><br><span class="line">					<span class="keyword">while</span>(flag[j]==<span class="number">0</span>)&#123;</span><br><span class="line">						flag[j]=res;</span><br><span class="line">						j=p[j];</span><br><span class="line">					&#125;</span><br><span class="line">					res++;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="comment">/*for(int j=1;j&lt;=n;j++)System.out.print(flag[j]+" " );</span><br><span class="line">				System.out.println();*/</span></span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(res-<span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="C_-_マス目と駒/Tables_and_Pieces"><strong>C - マス目と駒/Tables and Pieces</strong></h3><p><img src="/img/indeed-3.PNG" alt=""><br><strong>解题思路</strong><br>输入一个6X6的表，其中’o’表示已经有一个piece，’.’表示没有。要求每行每列都有3个’o’，求不同的摆放方法数目。<br>使用dfs。。。。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span>[][]s,<span class="keyword">int</span>[]row,<span class="keyword">int</span>[]col,<span class="keyword">int</span> idx,<span class="keyword">int</span> jdx)</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(idx==<span class="number">6</span>)&#123;</span><br><span class="line">			<span class="keyword">boolean</span> flag=<span class="keyword">true</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">6</span>;i++)</span><br><span class="line">				<span class="keyword">if</span>(col[i]!=<span class="number">3</span>||row[i]!=<span class="number">3</span>)&#123;</span><br><span class="line">					flag=<span class="keyword">false</span>;</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			<span class="keyword">if</span>(flag)&#123;</span><br><span class="line"><span class="comment">/*				for(int i=0;i&lt;6;i++)&#123;</span><br><span class="line">					for(int j=0;j&lt;6;j++)</span><br><span class="line">						System.out.print(s[i][j]+" ");</span><br><span class="line">					System.out.println();</span><br><span class="line">				&#125;</span><br><span class="line">				System.out.println();*/</span></span><br><span class="line">				res++;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> ;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(row[idx]==<span class="number">3</span>)&#123;</span><br><span class="line">			dfs(s,row,col,idx+<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=jdx;i&lt;<span class="number">6</span>;i++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(s[idx][i]==<span class="number">0</span>&amp;&amp;col[i]&lt;<span class="number">3</span>)&#123;</span><br><span class="line">				row[idx]++;</span><br><span class="line">				col[i]++;</span><br><span class="line">				s[idx][i]=<span class="number">1</span>;</span><br><span class="line">				dfs(s,row,col,idx,i);</span><br><span class="line">				s[idx][i]=<span class="number">0</span>;</span><br><span class="line">				row[idx]--;</span><br><span class="line">				col[i]--;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</span><br><span class="line">		Scanner cin=<span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		<span class="keyword">while</span>(cin.hasNext())&#123;</span><br><span class="line">			<span class="keyword">int</span>[][]s=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">6</span>][<span class="number">6</span>];</span><br><span class="line">			<span class="keyword">int</span> row[]=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">6</span>];</span><br><span class="line">			<span class="keyword">int</span> col[]=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">6</span>];</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">6</span>;i++)&#123;</span><br><span class="line">				String str=cin.nextLine();</span><br><span class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">6</span>;j++)&#123;</span><br><span class="line">					<span class="keyword">if</span>(str.charAt(j)==<span class="string">'.'</span>)s[i][j]=<span class="number">0</span>;</span><br><span class="line">					<span class="keyword">if</span>(str.charAt(j)==<span class="string">'o'</span>)&#123;</span><br><span class="line">						s[i][j]=<span class="number">1</span>;</span><br><span class="line">						row[i]++;</span><br><span class="line">						col[j]++;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">boolean</span> flag=<span class="keyword">false</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">6</span>;i++)&#123;</span><br><span class="line">				<span class="keyword">if</span>(row[i]&gt;<span class="number">3</span>||col[i]&gt;<span class="number">3</span>)&#123;</span><br><span class="line">					<span class="comment">//System.out.println(0);</span></span><br><span class="line">					flag=<span class="keyword">true</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(flag)&#123;</span><br><span class="line">				System.out.println(<span class="number">0</span>);</span><br><span class="line">				<span class="keyword">continue</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			res=<span class="number">0</span>;</span><br><span class="line">			dfs(s,row,col,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">			System.out.println(res);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="D_-_色付きボール/Colored_Balls"><strong>D - 色付きボール/Colored Balls</strong></h3><p><img src="/img/indeed-4.PNG" alt=""><br><strong>解题思路</strong><br>这道没做出来，只做对了k=2的情况。k=2的时候，就相当于两个几何分布。<br>题目意思是一个箱子里有一些球，这些球是有颜色的，一共有k个不同颜色。Mr Takabashi 重复一下步骤：</p>
+<ul>
+<li>从box里随机拿出一个球</li>
+<li>辨别这个球的颜色</li>
+<li>将这个球放回box里<br>问Mr Takabashi需要平均从box里取几次（即期望值）才能知道k个颜色是哪些，即平均取多少次才能至少取到K个具有不同颜色的球。<br>设p(N=n)表示取n次时可辨别k个颜色的概率。<br>当k=2时，则n&gt;=2。p1表示取到的球为颜色1的概率，p2表示取到的球为颜色2的概率，有放回的取，故p1+p2=1.<br>P(N=2)=p1 x p2<br>P(N=3)=(p1)^2 x p2+(p2)^2 x p1<br>…<br>P(N=n)=(p1)^(n-1) x p2+(p2)^(n-1) x p1<br>可以将其看作两个（受限的）独立的几何分布（至少2次）：不断取球，直到取到颜色1停止；不断取球，直到取到颜色2停止；<br>几何分布概念：在n次伯努利试验中，前k-1次皆失败，第k次成功的概率。<br>K&gt;2时，感觉是和K-1递推过去。。具体怎么做，没想出来。。。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[]args)</span></span>&#123;</span><br><span class="line">		Scanner cin=<span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		<span class="keyword">while</span>(cin.hasNext())&#123;</span><br><span class="line">			<span class="keyword">int</span> k=cin.nextInt();</span><br><span class="line">			<span class="keyword">int</span> []a=<span class="keyword">new</span> <span class="keyword">int</span>[k];</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;k;i++)</span><br><span class="line">				a[i]=cin.nextInt();</span><br><span class="line">			<span class="keyword">double</span> res=<span class="number">0</span>;</span><br><span class="line">			<span class="keyword">if</span>(k==<span class="number">2</span>)&#123;</span><br><span class="line">				<span class="keyword">double</span> a1=a[<span class="number">0</span>]*<span class="number">1.0</span>/(a[<span class="number">0</span>]+a[<span class="number">1</span>]);</span><br><span class="line">				<span class="keyword">double</span> b1=a[<span class="number">1</span>]*<span class="number">1.0</span>/(a[<span class="number">0</span>]+a[<span class="number">1</span>]);</span><br><span class="line">				res=(a1*<span class="number">2</span>-a1*a1)/(<span class="number">1</span>-a1)+(b1*<span class="number">2</span>-b1*b1)/(<span class="number">1</span>-b1);</span><br><span class="line">				System.out.println(res);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/04/13/华为2016实习生上机题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">华为2016实习生上机题</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="indeed2017校招在线编程题（网测）一" data-title="indeed2017校招在线编程题（网测）一" data-url="http://olivelv.github.io/2016/07/05/indeed2017校招在线编程题（网测）一/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      	<div class="footer-right">
+      		&copy; 2016 OliveLv
+      	</div>
+    </div>
+  </div>
+</footer>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?2d075193e4c68fd177d5e81b03fb88ab";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>
